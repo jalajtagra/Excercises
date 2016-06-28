@@ -31,9 +31,9 @@ class ProductSpec extends Specification {
         List<Product> productsSortedByNameAndSalaryActual = Product.getProductsSortedByNameAndSalary(products)
         then:
 
-       println productsSortedByNameAndSalaryActual.get(0).name == "A"
-        println productsSortedByNameAndSalaryActual.get(1).name == "B"
-        println productsSortedByNameAndSalaryActual.get(2).name == "C"
+         productsSortedByNameAndSalaryActual.get(0).name == "A"
+         productsSortedByNameAndSalaryActual.get(1).name == "B"
+         productsSortedByNameAndSalaryActual.get(2).name == "C"
 
 
 
