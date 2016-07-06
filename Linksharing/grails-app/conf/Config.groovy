@@ -115,8 +115,8 @@ log4j.main = {
            'org.hibernate',
            'net.sf.ehcache.hibernate'
 
-    error   'grails.app',
+    info   'grails.app',
             'grails.app.controllers.com.ttnd.liksharing.UtilController'
 }
 
-grails.config.locations = ["file:${userHome}/${appName}/${appName}-conf.groovy"]
+//grails.config.locations = ["file:${userHome}/${appName}/${appName}-conf.groovy"]

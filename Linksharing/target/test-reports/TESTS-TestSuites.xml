@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites>
+  <testsuite errors="0" failures="0" hostname="jalaj" id="0" name="UserSpec" package="com.ttnd.linksharing" skipped="0" tests="1" time="3.47" timestamp="2016-07-05T12:27:32">
+      <properties />
+
+      <testcase classname="com.ttnd.linksharing.UserSpec" name="toString method should return username of the user" time="3.414" />
+
+      <system-out><![CDATA[--Output from toString method should return username of the user--
+-----------------------------ndsbfhj--------------ndsbfhj---------------
+-----------------------------ndsbfhj--------------ndsbfhj---------------
+]]></system-out>
+
+      <system-err><![CDATA[--Output from toString method should return username of the user--
+]]></system-err>
+
+  </testsuite>
+</testsuites>

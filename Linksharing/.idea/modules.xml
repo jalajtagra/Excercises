@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Linksharing.iml" filepath="$PROJECT_DIR$/Linksharing.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Linksharing-grailsPlugins.iml" filepath="$PROJECT_DIR$/Linksharing-grailsPlugins.iml" />
     </modules>
   </component>
 </project>
