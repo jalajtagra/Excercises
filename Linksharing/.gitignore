@@ -1,0 +1,8 @@
+target/
+.classpath
+grailsw*
+grailsw.bat
+.idea/
+linksharing.iml
+.project
+wrapper/
