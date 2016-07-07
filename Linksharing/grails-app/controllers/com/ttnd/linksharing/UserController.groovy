@@ -17,8 +17,8 @@ class UserController {
         forward([controller: 'login',action: 'index'])
     }
 
-    def showtopic(Long topicId){
-        Topic topic = Topic.find("from Topic where id = :topic_id ",Integer.parseInt(topicId))
+    def showtopic(ResourceSearchCO resourceSearchCO){
+        Topic topic = Topic.find("from Topic where id = :topic_id ",Integer.parseInt(resourceSearchCO.topicId))
         if(topic != null){
             if( topic.visibility == Visibility.Public){
 
@@ -56,8 +56,8 @@ class UserController {
     def registeruser(User user){
 
         if(user.validate()){
-            user.active==true
-            user.admin==false
+            user.active=true
+            user.admin=false
             user.save();
             flash.message = "User registered successfully"
         }else{
