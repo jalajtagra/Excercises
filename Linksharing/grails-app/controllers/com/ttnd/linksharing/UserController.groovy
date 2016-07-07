@@ -17,8 +17,8 @@ class UserController {
         forward([controller: 'login',action: 'index'])
     }
 
-    def showtopic(String topic_id){
-        Topic topic = Topic.find("from Topic where id = :topic_id ",Integer.parseInt(topic_id))
+    def showtopic(Long topicId){
+        Topic topic = Topic.find("from Topic where id = :topic_id ",Integer.parseInt(topicId))
         if(topic != null){
             if( topic.visibility == Visibility.Public){
 
@@ -37,6 +37,8 @@ class UserController {
         }
 
     }
+
+
 
     /*def registeruser(){
         def user = new User();
