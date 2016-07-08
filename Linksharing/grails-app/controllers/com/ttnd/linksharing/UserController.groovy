@@ -1,6 +1,10 @@
 package com.ttnd.linksharing
 
+import org.springframework.validation.FieldError
+
 class UserController {
+
+    def messageSource
 
     def index() {
         if(session.user){
@@ -58,11 +62,20 @@ class UserController {
         if(user.validate()){
             user.active=true
             user.admin=false
-            user.save();
+            try{
+
+                user.save(failOnError: true,flush: true);
+            }catch(Exception ex){
+                log.error("Exception occurred while registering user"+ex)
+            }
             flash.message = "User registered successfully"
         }else{
-            user.getErrors().getFieldErrors();
-            flash.message="Details are not correct"
+            List<FieldError> errors = user.getErrors().getFieldErrors();
+            errors.each {
+                String errorfield = it.getField()
+                flash.message = messageSource.getMessage("registeruser.${errorfield}.error",null,null)
+            }
+
         }
         render flash.message
     }

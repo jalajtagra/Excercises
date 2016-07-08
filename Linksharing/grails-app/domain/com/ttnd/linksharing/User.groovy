@@ -9,13 +9,14 @@ class User {
     String confirmPassword
     String firstName
     String lastName
+    String name
     byte[] photo
     Boolean admin
     Boolean active
     Date dateCreated
     Date lastUpdated
 
-    static transients = ['confirmPassword']
+    static transients = ['confirmPassword','name']
 
 
     static hasMany = [topics:Topic,
@@ -30,6 +31,7 @@ class User {
     static constraints = {
         email(unique: true, email: true)
         password(size: 5..15,nullable: false,blank: false)
+        username(unique: true,nullable: false)
        confirmPassword(bindable:true,nullable: true, validator: {val,obj->
            if(val == obj.password){
 
@@ -51,6 +53,7 @@ class User {
 
     static mapping = {
         photo type:'blob'
+        sort id: 'desc'
     }
 
 
@@ -59,4 +62,30 @@ class User {
     String toString() {
         return username
     }
+
+     List<ReadingItem> getUnReadResources(SearchCO searchCO){
+        ReadingItem.createCriteria().list(max:searchCO.max,offset:searchCO.offset) {
+            createAlias("user","user")
+            createAlias("resource","resource")
+            projections {
+
+                property("resource.description")
+                property("resource.createdBy")
+                property("resource.topic")
+
+            }
+            if(searchCO.q){
+                like("resource.description","%"+searchCO.q +"%")
+            }
+            eq("isRead",false)
+
+        }
+
+    }
+
+    String getName(){
+        firstName+lastName
+    }
+
+
 }
