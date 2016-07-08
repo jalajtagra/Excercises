@@ -74,10 +74,11 @@ class UserController {
             errors.each {
                 String errorfield = it.getField()
                 flash.message = messageSource.getMessage("registeruser.${errorfield}.error",null,null)
+                render flash.message
             }
 
         }
-        render flash.message
+
     }
 
 }
