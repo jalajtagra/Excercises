@@ -4,7 +4,7 @@ class Subscription implements Serializable{
 
     Topic topic
     User user
-    Seriouness seriouness
+    Seriouness seriouness = Seriouness.Serious
     Date dateCreated
 
     static  belongsTo = [User,Topic]
@@ -15,6 +15,10 @@ class Subscription implements Serializable{
 
     }
     static mapping = {
+        user lazy:false
+        topic lazy: false
         //id composite: ['topic','user']
     }
+
+
 }
