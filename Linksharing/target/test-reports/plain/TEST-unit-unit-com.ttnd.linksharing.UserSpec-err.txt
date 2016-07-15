@@ -1,1 +1,0 @@
---Output from toString method should return username of the user--

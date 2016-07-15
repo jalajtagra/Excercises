@@ -16,6 +16,8 @@ class User {
     Date dateCreated
     Date lastUpdated
 
+
+
     static transients = ['confirmPassword','name']
 
 
@@ -35,11 +37,11 @@ class User {
        confirmPassword(bindable:true,nullable: true, validator: {val,obj->
            if(val == obj.password){
 
-               println "-----------------------------${val}--------------${obj.password}---------------"
+
               return true
            }else{
-               println "-----------------------------${val}--------------${obj.password}---------------"
-              return  false
+
+              return  'registeruser.confirmPassword.error'
            }
        })
         firstName(nullable: false,blank:false)
@@ -48,12 +50,14 @@ class User {
         photo(nullable: true)
         admin(nullable: true)
         active(nullable: true)
-
+        name(nullable: true)
     }
 
     static mapping = {
         photo type:'blob'
         sort id: 'desc'
+        resources lazy: false
+        subscriptions lazy:false
     }
 
 
@@ -75,7 +79,7 @@ class User {
 
             }
             if(searchCO.q){
-                like("resource.description","%"+searchCO.q +"%")
+                ilike("resource.description","%"+searchCO.q +"%")
             }
             eq("isRead",false)
 
@@ -85,6 +89,36 @@ class User {
 
     String getName(){
         firstName+lastName
+    }
+
+
+     transient List<TopicVO> getTopSubscribedTopicsForUser( int max){
+        List list =  Topic.createCriteria().list(max:max){
+            createAlias("resources","resource")
+            createAlias("subscriptions","subscription")
+            projections {
+                groupProperty("id")
+                property("name")
+                property("createdBy")
+                property("visibility")
+                countDistinct("resource.id","resourceCount")
+                countDistinct("subscription.id","subscriptionCount")
+
+            }
+            eq("subscription.user",this)
+
+        }
+
+        List<TopicVO> listOfTopicVOs = []
+
+        list.each {
+            TopicVO topicVO = new TopicVO(id:it[0],name: it[1],createdBy: it[2],visibility: it[3])
+            topicVO.count = it[4]
+            topicVO.subscriptionCount=it[5]
+            listOfTopicVOs.add(topicVO)
+        }
+
+        return listOfTopicVOs
     }
 
 

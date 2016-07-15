@@ -3,10 +3,10 @@ package com.ttnd.linksharing
 class SecurityFilters {
 
     def filters = {
-        all(controller:'*', action:'*',invert:'true') {
+        all(controller:'user|topic|resource', action:'dashboard|save|delete') {
             before = {
                 if (!session.user ) {
-                    redirect(action: 'login')
+                    redirect(controller: 'login', action: 'index')
                     return false
                 }
             }

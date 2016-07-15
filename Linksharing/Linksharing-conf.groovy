@@ -33,3 +33,5 @@ log4j.main = {
             'grails.app.controllers.com.ttnd.liksharing.UtilcontrollerController'
 
 }
+
+

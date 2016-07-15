@@ -28,6 +28,7 @@ public  java.lang.String getFirstName() { return (java.lang.String)null;}
 public  void setFirstName(java.lang.String value) { }
 public  java.lang.String getLastName() { return (java.lang.String)null;}
 public  void setLastName(java.lang.String value) { }
+public  void setName(java.lang.String value) { }
 public  byte[] getPhoto() { return (byte[])null;}
 public  void setPhoto(byte... value) { }
 public  java.lang.Boolean getAdmin() { return (java.lang.Boolean)null;}
@@ -47,4 +48,6 @@ public static  void setConstraints(java.lang.Object value) { }
 public static  java.lang.Object getMapping() { return null;}
 public static  void setMapping(java.lang.Object value) { }
 @java.lang.Override() public  java.lang.String toString() { return (java.lang.String)null;}
+public  java.util.List<com.ttnd.linksharing.ReadingItem> getUnReadResources(com.ttnd.linksharing.SearchCO searchCO) { return (java.util.List<com.ttnd.linksharing.ReadingItem>)null;}
+public  java.lang.String getName() { return (java.lang.String)null;}
 }

@@ -19,7 +19,7 @@ class BootStrap {
         }
         if(Topic.count==0){
             createTopics()
-            subscribeTopics()
+           // subscribeTopics()
 
         }
         if(!Resource.count){
@@ -89,7 +89,7 @@ class BootStrap {
                 }catch(ValidationException ex){
                     log.error("Exception caught while saving topics " + ex.printStackTrace())
                 }
-                createOwnerSubscriptions(topic,user)
+               /* createOwnerSubscriptions(topic,user)
                 createOwnerSubscriptions(topic2,user)
                 createOwnerSubscriptions(topic3,user)
                 createOwnerSubscriptions(topic4,user)
@@ -98,13 +98,13 @@ class BootStrap {
                 createOwnerSubscriptions(admintopic2,admin)
                 createOwnerSubscriptions(admintopic3,admin)
                 createOwnerSubscriptions(admintopic4,admin)
-                createOwnerSubscriptions(admintopic5,admin)
+                createOwnerSubscriptions(admintopic5,admin)*/
             }
         }
     }
 
     def createOwnerSubscriptions(Topic topic,User user) {
-        Subscription subscription =  new Subscription(user: user,topic: topic,seriouness: Seriouness.Very_Serious)
+        Subscription subscription =  new Subscription(user: user,topic: topic, seriousness: Seriouness.Very_Serious)
         try{
             subscription.save(failOnError: true,flush: true)
             log.info("Subscription saved")
@@ -121,8 +121,8 @@ class BootStrap {
             Resource linkresource = new LinkResource(url:'http://www.google.com',description: it.name, createdBy: it.createdBy,topic: it)
             Resource linkresource2 = new LinkResource(url:'http://www.amazon.com',description: it.name, createdBy: it.createdBy,topic: it)
 
-            Resource documentResource = new DocumentResource(filePath: 'dfsjkkjk',description: it.name,createdBy: it.createdBy,topic: it)
-            Resource documentResource2 = new DocumentResource(filePath: 'cxbvzmbmcvm',description: it.name,createdBy: it.createdBy,topic: it)
+            Resource documentResource = new DocumentResource(filePath: 'dfsjkkjk',description: it.name,createdBy: it.createdBy,topic: it,contentType: 'application/pdf')
+            Resource documentResource2 = new DocumentResource(filePath: 'cxbvzmbmcvm',description: it.name,createdBy: it.createdBy,topic: it,contentType: 'application/pdf')
             try{
                 linkresource.save(failOnError: true,flush: true)
                 linkresource2.save(failOnError: true,flush: true)
@@ -139,7 +139,7 @@ class BootStrap {
         User user = User.findByUsername('newuser')
         List<Topic> topics = Topic.findAll('from Topic where createdBy != :user',[user:user] )
         topics.each {
-            Subscription subscription = new Subscription(topic: it,user:user,seriouness: Seriouness.Serious)
+            Subscription subscription = new Subscription(topic: it,user:user, seriousness: Seriouness.Serious)
             try{
                 subscription.save(failOnError: true,flush: true)
             }catch(ValidationException ex){
@@ -155,6 +155,7 @@ class BootStrap {
             ReadingItem readingItem = new ReadingItem(resource: it,user: user,isRead: false)
             try{
                 readingItem.save(failOnError: true,flush: true)
+                log.info("Reading Item saved successfully")
             }catch(Exception ex){
                 log.error("Exception caught while creating reading items "+ex.printStackTrace())
             }

@@ -4,7 +4,7 @@ class Subscription implements Serializable{
 
     Topic topic
     User user
-    Seriouness seriouness = Seriouness.Serious
+    Seriouness seriousness = Seriouness.Serious
     Date dateCreated
 
     static  belongsTo = [User,Topic]

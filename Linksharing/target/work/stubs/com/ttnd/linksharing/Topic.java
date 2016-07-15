@@ -31,4 +31,7 @@ public static  void setHasMany(java.lang.Object value) { }
 public static  java.lang.Object getMapping() { return null;}
 public static  void setMapping(java.lang.Object value) { }
 @java.lang.Override() public  java.lang.String toString() { return (java.lang.String)null;}
+public  java.lang.Object afterInsert() { return null;}
+public static  java.util.List<com.ttnd.linksharing.TopicVO> getTopicsInfo(int max) { return (java.util.List<com.ttnd.linksharing.TopicVO>)null;}
+public static  java.util.List<com.ttnd.linksharing.TopicVO> getTopSubscribedTopicsForUser(com.ttnd.linksharing.User user, int max) { return (java.util.List<com.ttnd.linksharing.TopicVO>)null;}
 }

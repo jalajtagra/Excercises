@@ -26,15 +26,15 @@ class SubscriptionSpec extends Specification {
         Topic topic = new Topic(createdBy: user,visibility: Visibility.Public,name: 'NEW')
         topic.save()
         when:
-        Subscription subscription = new Subscription(user: user,topic: topic,seriouness: Seriouness.Casual)
+        Subscription subscription = new Subscription(user: user,topic: topic, seriousness: Seriouness.Casual)
         subscription.save()
         then:
         Subscription.count==1
         when:
-        Subscription subscription2 = new Subscription(user: user,topic: topic,seriouness: Seriouness.Very_Serious)
+        Subscription subscription2 = new Subscription(user: user,topic: topic, seriousness: Seriouness.Very_Serious)
         subscription2.save()
         then:
         Subscription.count==1
-//        Subscription.get(subscription.id).seriouness == Seriouness.Very_Serious
+//        Subscription.get(subscription.id).seriousness == Seriouness.Very_Serious
     }
 }

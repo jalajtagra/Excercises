@@ -4,6 +4,8 @@ import org.springframework.validation.FieldError
 
 class UserController {
 
+
+
     def messageSource
 
     def index() {
@@ -18,7 +20,7 @@ class UserController {
     def logout() {
         session.invalidate()
 
-        forward([controller: 'login',action: 'index'])
+        redirect([controller: 'login',action: 'index'])
     }
 
     def showtopic(ResourceSearchCO resourceSearchCO){
@@ -57,28 +59,65 @@ class UserController {
         render "flash.message"
     }*/
 
-    def registeruser(User user){
+    def registeruser(UserCommand userCommand){
 
-        if(user.validate()){
+        if(userCommand.validate()){
+            User user = new User(userCommand.properties)
             user.active=true
             user.admin=false
             try{
 
                 user.save(failOnError: true,flush: true);
+                flash.message = "User registered successfully"
+                session.user = user
+                redirect([action: 'dashboard'])
             }catch(Exception ex){
+
+
                 log.error("Exception occurred while registering user"+ex)
+                render model: [userCommand:user],view:'login'
             }
-            flash.message = "User registered successfully"
+
         }else{
-            List<FieldError> errors = user.getErrors().getFieldErrors();
+            /*List<FieldError> errors = user.getErrors().getFieldErrors();
             errors.each {
                 String errorfield = it.getField()
                 flash.message = messageSource.getMessage("registeruser.${errorfield}.error",null,null)
-                render flash.message
-            }
+                render flash.message,view: 'login'
+            }*/
+                    if(userCommand.hasErrors())
+            render model: [userCommand:userCommand],view:'login'
 
         }
 
     }
+
+    def dashboard(){
+        User user = session.user
+        List<TopicVO> topics = Topic.getTopicsInfo(2)
+//        List<Resource> topResources = Resource.getTopResources()
+//        List<Subscription> subscriptions = Subscription.findAllByUser(session.user);
+        List<TopicVO> top5SubscribedTopics = user.getTopSubscribedTopicsForUser(2)
+        List<ReadingItem> readingItems = user.getUnReadResources(new SearchCO(max: 2,offset: 0,q:null,))
+      //  List<Subscription> allSubscriptions = session.user.subscriptions
+
+
+        render view: 'dashboard',model: [topics:topics,subscriptions:top5SubscribedTopics,readingItems:readingItems,user:session.user]
+
+    }
+
+    def image(Long id) {
+        User user = User.findById(id)
+        if(user.photo){
+            return photo
+        }else{
+            return null
+        }
+    }
+
+
+
+
+
 
 }

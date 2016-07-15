@@ -27,8 +27,10 @@ class Topic {
     ]
 
     static mapping = {
-        id : 'name'
+//        id : 'name'
         sort "name"
+        subscriptions lazy: false
+        createdBy lazy:false
     }
 
     @Override
@@ -36,17 +38,29 @@ class Topic {
         return name
     }
 
-    static TopicVO getTopicsInfo(){
+    def afterInsert(){
 
-        List list= Resource.createCriteria().list(max:5){
-            createAlias("topic",'res')
+        Subscription subscription = new Subscription(topic: this,user:createdBy, seriousness: Seriouness.Very_Serious)
+        withNewSession {
+            subscription.save()
+        }
+    }
+
+    static List<TopicVO> getTopicsInfo(int max){
+
+        List list= Resource.createCriteria().list(max:max){
+            createAlias("topic",'topic')
+            //createAlias("subscription","subscription")
             projections{
 
                 groupProperty("topic")
                 property("topic.name")
                 property("topic.createdBy")
                 property("topic.visibility")
+                property("topic.id")
+                property("topic.subscriptions")
                 countDistinct("id","count")
+
             }
             order("count",'desc')
         }
@@ -55,7 +69,7 @@ class Topic {
 
         list.each{
             Topic topic = it[0]
-            TopicVO topicVO = new TopicVO(name: it[1],createdBy: it[2],visibility: it[3])
+            TopicVO topicVO = new TopicVO(name: it[1],createdBy: it[2],visibility: it[3],count: it[6],id:it[4],subscriptionCount: Subscription.findAllByTopic(topic).size(),subscriptions: it[5])
             topicVOs.add(topicVO)
         }
 
@@ -63,8 +77,16 @@ class Topic {
         topicVOs
     }
 
-/*def afterInsert(){
-        Subscription
-    }*/
+
+    transient List<User> getSubscribedUsers(){
+        List<User> subscribingUsers = []
+        subscriptions.each{
+            subscribingUsers.add(it.user)
+        }
+        subscribingUsers
+    }
+
+
+
 
 }

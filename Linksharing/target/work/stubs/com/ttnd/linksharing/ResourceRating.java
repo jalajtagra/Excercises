@@ -22,6 +22,8 @@ public  com.ttnd.linksharing.User getUser() { return (com.ttnd.linksharing.User)
 public  void setUser(com.ttnd.linksharing.User value) { }
 public  java.lang.Integer getRating() { return (java.lang.Integer)null;}
 public  void setRating(java.lang.Integer value) { }
+public static  java.lang.Object getBelongsTo() { return null;}
+public static  void setBelongsTo(java.lang.Object value) { }
 public static  java.lang.Object getConstraints() { return null;}
 public static  void setConstraints(java.lang.Object value) { }
 }

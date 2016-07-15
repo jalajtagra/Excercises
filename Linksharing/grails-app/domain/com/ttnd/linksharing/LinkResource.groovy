@@ -11,4 +11,6 @@ class LinkResource extends Resource {
     String toString() {
         return url;
     }
+
+
 }

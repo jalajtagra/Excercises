@@ -4,6 +4,7 @@ dataSource {
     driverClassName = "com.mysql.jdbc.Driver"
     username = "root"
     password = "password"
+    loggingSql = true
 }
 hibernate {
     cache.use_second_level_cache = true
@@ -24,6 +25,7 @@ environments {
             String port = 3306
             String dbName = "LinkSharing"*/
             url="jdbc:mysql://localhost:3306/LinkSharing"
+
 //            username = "root"
 //            password = "password"
         }
@@ -35,7 +37,7 @@ environments {
 //            String host = "localhost"
 //            String port = 3306
 //            String dbName = "LinkSharing"
-            url="jdbc:mysql://localhost:3306/LinkSharing"
+            url="jdbc:mysql://localhost:3306/linksharing_test"
         }
     }
     production {
