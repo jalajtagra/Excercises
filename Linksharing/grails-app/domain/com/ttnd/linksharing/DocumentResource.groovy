@@ -14,6 +14,8 @@ class DocumentResource extends Resource{
         discriminator("Document")
     }
 
+    static belongsTo = [createdBy: User,topic:Topic]
+
     static constraints = {
         contentType bindable:true,validator: {val,obj->
             val == DOCUMENT_CONTENT_TYPE
@@ -28,9 +30,27 @@ class DocumentResource extends Resource{
     }
 
     def afterInsert(){
-        ReadingItem readingItem = new ReadingItem(resource: this,user:createdBy,isRead: true)
+       /* ReadingItem readingItem = new ReadingItem(resource: this,user:createdBy,isRead: true)
         withNewSession {
             readingItem.save()
+        }*/
+        Set<Subscription> subscriptions = topic.subscriptions
+        subscriptions?.each{
+            ReadingItem readingItem = new ReadingItem(resource: this,user:it.user,isRead: false)
+            if(readingItem.user == this.createdBy){
+               readingItem.isRead = true
+                this.addToReadingItems(readingItem)
+            }else{
+
+
+                    this.addToReadingItems(readingItem)
+
+            }
+
+
+
+
+
         }
 
     }

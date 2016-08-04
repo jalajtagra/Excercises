@@ -1,6 +1,7 @@
 package com.ttnd.linksharing
 
 import grails.validation.Validateable
+import org.springframework.web.multipart.MultipartFile
 
 /**
  * Created by ttnd on 12/7/16.
@@ -17,6 +18,7 @@ class UserCommand {
     String firstName
     String lastName
     String name
+    MultipartFile profilePhoto
     byte[] photo
     Boolean admin
     Boolean active

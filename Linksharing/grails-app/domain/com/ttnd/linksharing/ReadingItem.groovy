@@ -12,8 +12,8 @@ class ReadingItem {
 
     static mapping = {
         isRead type: 'boolean'
-        resource lazy: false
-        sort "resource.dateCreated"
+        //resource lazy: false
+        //sort "resource.dateCreated"
 
     }
 

@@ -9,14 +9,15 @@ class Topic {
     static belongsTo = [createdBy:User]
 
     static constraints = {
-        name(blank: false,validator: {val,obj->
+      /*  name(blank: false,validator: {val,obj->
             if(Topic.findByNameAndCreatedBy(val,obj.createdBy) != null){
                 return false;
             }else{
                 return true;
             }
 
-        })
+        })*/
+        name unique: "createdBy"
 
     }
 
@@ -28,8 +29,8 @@ class Topic {
 
     static mapping = {
 //        id : 'name'
-        sort "name"
-        subscriptions lazy: false
+        sort name: "asc"
+      //  subscriptions lazy: false
         createdBy lazy:false
     }
 
@@ -46,9 +47,9 @@ class Topic {
         }
     }
 
-    static List<TopicVO> getTopicsInfo(int max){
+    static List<TopicVO> getTopicsInfo(int max,int offset){
 
-        List list= Resource.createCriteria().list(max:max){
+        List list= Resource.createCriteria().list(max:max,offset:offset){
             createAlias("topic",'topic')
             //createAlias("subscription","subscription")
             projections{
@@ -58,7 +59,6 @@ class Topic {
                 property("topic.createdBy")
                 property("topic.visibility")
                 property("topic.id")
-                property("topic.subscriptions")
                 countDistinct("id","count")
 
             }
@@ -69,7 +69,8 @@ class Topic {
 
         list.each{
             Topic topic = it[0]
-            TopicVO topicVO = new TopicVO(name: it[1],createdBy: it[2],visibility: it[3],count: it[6],id:it[4],subscriptionCount: Subscription.findAllByTopic(topic).size(),subscriptions: it[5])
+            TopicVO topicVO = new TopicVO(name: it[1],createdBy: it[2],visibility: it[3],count: it[5],id:it[4],subscriptionCount: Subscription.findAllByTopic(topic).size())
+            topicVO.subscriptions = Subscription.findAllByTopic(Topic.get(it[4]))
             topicVOs.add(topicVO)
         }
 
@@ -86,6 +87,22 @@ class Topic {
         subscribingUsers
     }
 
+    transient static List<Topic> searchTopics(String searchString,int max, int offset){
+        Topic.createCriteria().list(max:max,offset:offset) {
+            ilike("name","%" +searchString +"%")
+            eq("visibility",Visibility.Public)
+            order("name")
+        }
+    }
+
+    static Long searchCount(String searchString){
+        Topic.createCriteria().count() {
+
+            ilike("name","%" +searchString +"%")
+            eq("visibility",Visibility.Public)
+
+        }
+    }
 
 
 

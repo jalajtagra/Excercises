@@ -48,6 +48,8 @@ public static  void setConstraints(java.lang.Object value) { }
 public static  java.lang.Object getMapping() { return null;}
 public static  void setMapping(java.lang.Object value) { }
 @java.lang.Override() public  java.lang.String toString() { return (java.lang.String)null;}
-public  java.util.List<com.ttnd.linksharing.ReadingItem> getUnReadResources(com.ttnd.linksharing.SearchCO searchCO) { return (java.util.List<com.ttnd.linksharing.ReadingItem>)null;}
+public  java.util.List<com.ttnd.linksharing.ResourceVO> getUnReadResources(com.ttnd.linksharing.SearchCO searchCO) { return (java.util.List<com.ttnd.linksharing.ResourceVO>)null;}
+public  java.lang.Integer getUnReadResourcesCount(com.ttnd.linksharing.SearchCO searchCO) { return (java.lang.Integer)null;}
 public  java.lang.String getName() { return (java.lang.String)null;}
+public  java.util.List<com.ttnd.linksharing.TopicVO> getTopSubscribedTopicsForUser(int max, int offset) { return (java.util.List<com.ttnd.linksharing.TopicVO>)null;}
 }

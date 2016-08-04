@@ -1,0 +1,1 @@
+<g:render template="/templates/readingItem" collection="${readingItems}" var="resource" id="inbox-items"></g:render>

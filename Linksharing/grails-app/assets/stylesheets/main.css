@@ -1,3 +1,9 @@
+h1, h2, h3, h4, h5, h6 {
+	font-family: 'Titillium Web', sans-serif;
+}
+p, div {
+	font-family: 'Titillium Web', sans-serif;
+}
 
 .editForm{
 	display:none !important
@@ -19,7 +25,7 @@
 }
 
 .subscriptionicons{
-	margin-top:10px;
+
 	margin-right: 10px;
 }
 
@@ -32,7 +38,7 @@
 
 
 #searchbox{
-	background-image: url(images/search.png);
+	background-image: url(assets/images/search.png);
 	background-size: 20px 20px;
 	background-repeat: no-repeat;
 	background-position: 7px 7px;
@@ -68,6 +74,8 @@
 body {
 	min-height: 2000px;
 	padding-top: 70px;
+	font-size: 14px;
+	font-family: Arial, sans-serif;
 }
 .errors{
 	color: red;
@@ -75,4 +83,84 @@ body {
 	border:solid 1px;
 	border-radius: 4px;
 }
+/*.resource-actions a{
+	float:right;
+}*/
 
+#cover {
+	background: url("//assets/images/ajaxloader.gif") no-repeat scroll center center #FFF;
+	position: absolute;
+	height: 100%;
+	width: 100%;
+}
+a{
+	color:darkcyan;
+}
+
+a,
+a label,
+.subscriptionicons{
+    cursor: pointer;
+}
+
+.panel-body{
+	border-bottom:solid 1px lightgray;
+
+}
+.panel-body:hover{
+	background-color: whitesmoke;
+	cursor: hand;
+
+}
+.panel-heading{
+	background-color: mediumaquamarine !important;
+}
+
+.navbar{
+	background-color: black !important;
+}
+.social{
+	cursor: pointer;
+
+}
+.social:hover{
+	zoom: 150%;
+
+}
+.subscriptionicons:hover{
+
+}
+.description{
+	text-overflow : ellipsis;
+}
+.edit-topic-name{
+	display: none;
+}
+.fa-heart-o{
+	font-size: 24px;
+
+}
+.fa-heart{
+	font-size: 24px;
+}
+.pagination{
+	margin-left:25%;
+}
+.span-mouseover{
+	cursor: pointer;
+}
+.span-mouseover:hover{
+	color:blue;
+}
+.users-panel-body:hover{
+
+	background-color: white !important;
+
+}
+.user-row:hover{
+
+	background-color: whitesmoke;
+	cursor: hand;
+
+
+}

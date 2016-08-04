@@ -15,7 +15,7 @@ abstract class Resource {
 //    static final DEFAULT_SORT_DIRECTION = 'desc'
 
 
-    static hasMany = [resourceRatings: ResourceRating]
+    static hasMany = [resourceRatings: ResourceRating,readingItems:ReadingItem]
 
     static transients = ['ratingInfoVO']
 
@@ -26,7 +26,7 @@ abstract class Resource {
     }
 
 
-    static belongsTo = [createdBy: User]
+    static belongsTo = [createdBy: User,topic:Topic]
 
     transient RatingInfoVO getRatingInfo() {
         RatingInfoVO ratingInfoVO1 = new RatingInfoVO()
@@ -47,7 +47,11 @@ abstract class Resource {
 
         ratingInfoVO1.setTotalVotes(noOfRatings)
         ratingInfoVO1.setTotalScore(totalRating)
-        ratingInfoVO1.setAvgScore(totalRating / noOfRatings)
+        if(noOfRatings != 0){
+            ratingInfoVO1.setAvgScore(totalRating / noOfRatings)
+        }else{
+            ratingInfoVO1.setAvgScore(0)
+        }
 
         return ratingInfoVO1
 
@@ -63,7 +67,7 @@ abstract class Resource {
                 property("resource.description")
                 property("resource.createdBy")
 //                property("resource.dis")
-                    property("resource.filePath")
+                property("resource.filePath")
                 property("resource.url")
                 rowCount("totalRatings")
             }
@@ -90,6 +94,8 @@ abstract class Resource {
             createAlias("topic", "top")
 
 
+
+
             if (co.q)
                 ilike("description", "%${co.q}%")
             if (co.topicId) {
@@ -108,7 +114,7 @@ abstract class Resource {
                 maxResults co.max
                 firstResult co.offset
             } else {
-                maxResults 10
+                maxResults 5
                 firstResult 0
             }
 
@@ -116,9 +122,36 @@ abstract class Resource {
         }
     }
 
-    void delete() {
+    static Integer searchCount(ResourceSearchCO co){
+        Resource.createCriteria().count{
 
+            createAlias("topic", "top")
+
+            if (co.q)
+                ilike("description", "%${co.q}%")
+            if (co.topicId) {
+//                        'in'('topic',Topic.findAll("from Topic where visibility = :visibility and id=:id",[visibility:Visibility.Public,id:co.topicId]))
+                eq('top.id', co.topicId)
+            }
+            if (co.visibility) {
+                eq('top.visibility', Visibility.getVisibilityFromString(co.visibility))
+            }
+            if (co.order && co.sort) {
+                order(co.order, co.sort)
+            } else {
+                order('dateCreated', 'desc')
+            }
+            if (co.max && (co.offset != null)) {
+                maxResults co.max
+                firstResult co.offset
+            } else {
+                maxResults 5
+                firstResult 0
+            }
+        }
     }
+
+
 
 
 }

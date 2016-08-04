@@ -36,7 +36,7 @@ class BootStrap {
     def createUsers(){
 
         User user = new User(username: 'newuser',password: 'Password',confirmPassword: 'Password', firstName: 'New',lastName: 'User',email:'newuser@gmail.com',active: true,admin:false);
-        User admin = new User(username: 'Admin',password: 'Adminn',confirmPassword: 'Adminn',firstName: 'Jalaj',lastName: 'Tagra',email: 'jalajtagra786@gmail.com',active: true,admin: true)
+        User admin = new User(username: 'Admin',password: 'Password',confirmPassword: 'Password',firstName: 'Jalaj',lastName: 'Tagra',email: 'jalajtagra786@gmail.com',active: true,admin: true)
         try{
 
             user.save(failOnError: true,flush: true)
@@ -121,8 +121,8 @@ class BootStrap {
             Resource linkresource = new LinkResource(url:'http://www.google.com',description: it.name, createdBy: it.createdBy,topic: it)
             Resource linkresource2 = new LinkResource(url:'http://www.amazon.com',description: it.name, createdBy: it.createdBy,topic: it)
 
-            Resource documentResource = new DocumentResource(filePath: 'dfsjkkjk',description: it.name,createdBy: it.createdBy,topic: it,contentType: 'application/pdf')
-            Resource documentResource2 = new DocumentResource(filePath: 'cxbvzmbmcvm',description: it.name,createdBy: it.createdBy,topic: it,contentType: 'application/pdf')
+            Resource documentResource = new DocumentResource(filePath: '/home/ttnd/Excercises/Linksharing/Files/Controller 1 (1).pdf1470217872236',description: it.name,createdBy: it.createdBy,topic: it,contentType: 'application/pdf')
+            Resource documentResource2 = new DocumentResource(filePath: '/home/ttnd/Excercises/Linksharing/Files/Controller 1 (1).pdf1470217872236',description: it.name,createdBy: it.createdBy,topic: it,contentType: 'application/pdf')
             try{
                 linkresource.save(failOnError: true,flush: true)
                 linkresource2.save(failOnError: true,flush: true)

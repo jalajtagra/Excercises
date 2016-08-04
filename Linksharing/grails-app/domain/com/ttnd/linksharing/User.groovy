@@ -1,5 +1,7 @@
 package com.ttnd.linksharing
 
+import org.hibernate.criterion.CriteriaSpecification
+
 
 class User {
 
@@ -11,6 +13,7 @@ class User {
     String lastName
     String name
     byte[] photo
+//    String filePath
     Boolean admin
     Boolean active
     Date dateCreated
@@ -51,13 +54,16 @@ class User {
         admin(nullable: true)
         active(nullable: true)
         name(nullable: true)
+//        filePath(nullable: true)
     }
 
     static mapping = {
-        photo type:'blob'
+        photo sqlType: 'blob'
         sort id: 'desc'
-        resources lazy: false
-        subscriptions lazy:false
+        resources cascade: 'all-delete-orphan'
+        readingItems cascade: 'all-delete-orphan'
+//        resources lazy: false
+//        subscriptions lazy:false
     }
 
 
@@ -67,23 +73,62 @@ class User {
         return username
     }
 
-     List<ReadingItem> getUnReadResources(SearchCO searchCO){
-        ReadingItem.createCriteria().list(max:searchCO.max,offset:searchCO.offset) {
-            createAlias("user","user")
-            createAlias("resource","resource")
-            projections {
+     List<ResourceVO> getUnReadResources(SearchCO searchCO){
 
-                property("resource.description")
-                property("resource.createdBy")
-                property("resource.topic")
+
+        List list = ReadingItem.createCriteria().list(max:searchCO.max,offset:searchCO.offset) {
+            resultTransformer(CriteriaSpecification.ALIAS_TO_ENTITY_MAP)
+//            createAlias("user","user")
+            createAlias("resource","res")
+           createAlias("resource.createdBy","createdBy")
+            projections {
+                property("res.id","id")
+                property("res.description","description")
+                property("res.createdBy","createdBy")
+                property("res.topic","topic")
+                property("res.url","url")
 
             }
             if(searchCO.q){
-                ilike("resource.description","%"+searchCO.q +"%")
+                ilike("res.description","%"+searchCO.q +"%")
+            }
+            eq("isRead",false)
+            eq("user",this)
+            order("description")
+
+        }
+
+       return  list.collect{
+                if(it.url != null){
+                    new LinkResourceVO(it)
+
+                }else{
+
+                    new DocumentResourceVO(id:it.id,description: it.description,topic: it.topic,createdBy: it.createdBy)
+                }
+         }
+    }
+
+    Integer getUnReadResourcesCount(SearchCO searchCO){
+
+
+        List list = ReadingItem.createCriteria().list() {
+            resultTransformer(CriteriaSpecification.ALIAS_TO_ENTITY_MAP)
+//            createAlias("user","user")
+            createAlias("resource","res")
+            createAlias("resource.createdBy","createdBy")
+            projections {
+                count("id","count")
+
+            }
+            if(searchCO.q){
+                ilike("res.description","%"+searchCO.q +"%")
             }
             eq("isRead",false)
 
         }
+        return list[0].count
+
 
     }
 
@@ -92,8 +137,8 @@ class User {
     }
 
 
-     transient List<TopicVO> getTopSubscribedTopicsForUser( int max){
-        List list =  Topic.createCriteria().list(max:max){
+     transient List<TopicVO> getTopSubscribedTopicsForUser( int max,int offset){
+        List list =  Topic.createCriteria().list(max:max,offset:offset){
             createAlias("resources","resource")
             createAlias("subscriptions","subscription")
             projections {
@@ -106,6 +151,7 @@ class User {
 
             }
             eq("subscription.user",this)
+            order("resourceCount","desc")
 
         }
 
@@ -115,11 +161,60 @@ class User {
             TopicVO topicVO = new TopicVO(id:it[0],name: it[1],createdBy: it[2],visibility: it[3])
             topicVO.count = it[4]
             topicVO.subscriptionCount=it[5]
+            topicVO.subscriptions = Subscription.findAllByTopic(Topic.get(it[0]))
             listOfTopicVOs.add(topicVO)
         }
 
         return listOfTopicVOs
     }
+
+    static List<User> adminSearch(String searchtString,Boolean active,int max,int offset){
+        User.createCriteria().list(max:max,offset:offset){
+            or {
+                ilike("username","%${searchtString}%")
+                ilike("firstName","%${searchtString}%")
+                ilike("lastName","%${searchtString}%")
+                ilike("email","%${searchtString}%")
+            }
+            if(active != null){
+                eq("active",active)
+            }
+            notEqual("username","Admin")
+           /* if(ilike("username","%${searchtString}%")){
+                order(ilike("username","%${searchtString}%"))
+            }
+            if(ilike("firstName","%${searchtString}%")){
+                order(ilike("firstName","%${searchtString}%"))
+            }
+            if(ilike("lastName","%${searchtString}%")){
+                order(ilike("lastName","%${searchtString}%"))
+            }
+            if(ilike("email","%${searchtString}%")){
+                order(ilike("email","%${searchtString}%"))
+            }*/
+            order("dateCreated")
+        }
+    }
+
+    static Integer adminSearchCount(String searchtString,Boolean active){
+        User.createCriteria().count(){
+            or {
+                ilike("username","%${searchtString}%")
+                ilike("firstName","%${searchtString}%")
+                ilike("lastName","%${searchtString}%")
+                ilike("email","%${searchtString}%")
+            }
+            if(active != null){
+                eq("active",active)
+            }
+
+            notEqual("username","Admin")
+
+        }
+    }
+
+
+
 
 
 }

@@ -39,5 +39,6 @@ public static  void setBelongsTo(java.lang.Object value) { }
 public static  java.lang.Object getNamedQueries() { return null;}
 public static  void setNamedQueries(java.lang.Object value) { }
 public  com.ttnd.linksharing.RatingInfoVO getRatingInfo() { return (com.ttnd.linksharing.RatingInfoVO)null;}
-public static  java.util.List getTopResources() { return (java.util.List)null;}
+public static  java.util.List<com.ttnd.linksharing.ResourceVO> getTopResources() { return (java.util.List<com.ttnd.linksharing.ResourceVO>)null;}
+public  void delete() { }
 }

@@ -21962,3 +21962,742 @@ Possible solutions: sum(java.lang.String), sum(java.lang.String, java.lang.Strin
 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
 	at java.lang.Thread.run(Thread.java:745)
+2016-07-15 15:20:44,784 [http-bio-8080-exec-7] ERROR StackTrace  - Full Stack Trace:
+org.hibernate.QueryException: duplicate association path: resource
+	at org.hibernate.loader.criteria.CriteriaQueryTranslator.createAssociationPathCriteriaMap(CriteriaQueryTranslator.java:171)
+	at org.hibernate.loader.criteria.CriteriaQueryTranslator.<init>(CriteriaQueryTranslator.java:111)
+	at org.hibernate.loader.criteria.CriteriaLoader.<init>(CriteriaLoader.java:88)
+	at org.hibernate.internal.SessionImpl.list(SessionImpl.java:1699)
+	at org.hibernate.internal.CriteriaImpl.list(CriteriaImpl.java:380)
+	at grails.orm.PagedResultList.<init>(PagedResultList.java:43)
+	at grails.orm.HibernateCriteriaBuilder.createPagedResultList(HibernateCriteriaBuilder.java:163)
+	at org.codehaus.groovy.grails.orm.hibernate.query.AbstractHibernateCriteriaBuilder.invokeMethod(AbstractHibernateCriteriaBuilder.java:1647)
+	at org.codehaus.groovy.grails.orm.hibernate.query.AbstractHibernateCriteriaBuilder.list(AbstractHibernateCriteriaBuilder.java:1526)
+	at org.grails.datastore.mapping.query.api.BuildableCriteria$list.call(Unknown Source)
+	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCall(CallSiteArray.java:48)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:113)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:133)
+	at com.ttnd.linksharing.User.getUnReadResources(User.groovy:71)
+	at com.ttnd.linksharing.User$getUnReadResources$1.call(Unknown Source)
+	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCall(CallSiteArray.java:48)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:113)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:125)
+	at com.ttnd.linksharing.UserController.dashboard(UserController.groovy:101)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.springsource.loaded.ri.ReflectiveInterceptor.jlrMethodInvoke(ReflectiveInterceptor.java:1426)
+	at org.codehaus.groovy.grails.web.servlet.mvc.MixedGrailsControllerHelper.invoke(MixedGrailsControllerHelper.java:154)
+	at org.codehaus.groovy.grails.web.servlet.mvc.AbstractGrailsControllerHelper.handleAction(AbstractGrailsControllerHelper.java:375)
+	at org.codehaus.groovy.grails.web.servlet.mvc.AbstractGrailsControllerHelper.executeAction(AbstractGrailsControllerHelper.java:252)
+	at org.codehaus.groovy.grails.web.servlet.mvc.AbstractGrailsControllerHelper.handleURI(AbstractGrailsControllerHelper.java:205)
+	at org.codehaus.groovy.grails.web.servlet.mvc.AbstractGrailsControllerHelper.handleURI(AbstractGrailsControllerHelper.java:126)
+	at org.codehaus.groovy.grails.web.servlet.mvc.SimpleGrailsController.handleRequest(SimpleGrailsController.java:72)
+	at org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter.handle(SimpleControllerHandlerAdapter.java:50)
+	at org.codehaus.groovy.grails.web.servlet.GrailsDispatcherServlet.doDispatch(GrailsDispatcherServlet.java:347)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:893)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:967)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:858)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:624)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:843)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:731)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:303)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:208)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:241)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:208)
+	at grails.plugin.cache.web.filter.PageFragmentCachingFilter.doFilter(PageFragmentCachingFilter.java:198)
+	at grails.plugin.cache.web.filter.AbstractFilter.doFilter(AbstractFilter.java:63)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:344)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:261)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:241)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:208)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:101)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:241)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:208)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:101)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:241)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:208)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:101)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:241)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:208)
+	at org.apache.catalina.core.ApplicationDispatcher.invoke(ApplicationDispatcher.java:747)
+	at org.apache.catalina.core.ApplicationDispatcher.processRequest(ApplicationDispatcher.java:485)
+	at org.apache.catalina.core.ApplicationDispatcher.doForward(ApplicationDispatcher.java:410)
+	at org.apache.catalina.core.ApplicationDispatcher.forward(ApplicationDispatcher.java:337)
+	at org.codehaus.groovy.grails.web.mapping.UrlMappingUtils.forwardRequestForUrlMappingInfo(UrlMappingUtils.java:178)
+	at org.codehaus.groovy.grails.web.mapping.UrlMappingUtils$forwardRequestForUrlMappingInfo.call(Unknown Source)
+	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCall(CallSiteArray.java:48)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:113)
+	at org.codehaus.groovy.grails.web.metaclass.ForwardMethod.forward(ForwardMethod.groovy:79)
+	at org.codehaus.groovy.grails.plugins.web.api.ControllersApi.forward(ControllersApi.java:405)
+	at com.ttnd.linksharing.LoginController.forward(LoginController.groovy)
+	at com.ttnd.linksharing.LoginController$forward$2.callCurrent(Unknown Source)
+	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCallCurrent(CallSiteArray.java:52)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callCurrent(AbstractCallSite.java:154)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callCurrent(AbstractCallSite.java:166)
+	at com.ttnd.linksharing.LoginController.index(LoginController.groovy:12)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.springsource.loaded.ri.ReflectiveInterceptor.jlrMethodInvoke(ReflectiveInterceptor.java:1426)
+	at org.codehaus.groovy.grails.web.servlet.mvc.MixedGrailsControllerHelper.invoke(MixedGrailsControllerHelper.java:154)
+	at org.codehaus.groovy.grails.web.servlet.mvc.AbstractGrailsControllerHelper.handleAction(AbstractGrailsControllerHelper.java:375)
+	at org.codehaus.groovy.grails.web.servlet.mvc.AbstractGrailsControllerHelper.executeAction(AbstractGrailsControllerHelper.java:252)
+	at org.codehaus.groovy.grails.web.servlet.mvc.AbstractGrailsControllerHelper.handleURI(AbstractGrailsControllerHelper.java:205)
+	at org.codehaus.groovy.grails.web.servlet.mvc.AbstractGrailsControllerHelper.handleURI(AbstractGrailsControllerHelper.java:126)
+	at org.codehaus.groovy.grails.web.servlet.mvc.SimpleGrailsController.handleRequest(SimpleGrailsController.java:72)
+	at org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter.handle(SimpleControllerHandlerAdapter.java:50)
+	at org.codehaus.groovy.grails.web.servlet.GrailsDispatcherServlet.doDispatch(GrailsDispatcherServlet.java:347)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:893)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:967)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:858)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:624)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:843)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:731)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:303)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:208)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:241)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:208)
+	at grails.plugin.cache.web.filter.PageFragmentCachingFilter.doFilter(PageFragmentCachingFilter.java:198)
+	at grails.plugin.cache.web.filter.AbstractFilter.doFilter(AbstractFilter.java:63)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:344)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:261)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:241)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:208)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:101)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:241)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:208)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:101)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:241)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:208)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:101)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:241)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:208)
+	at org.apache.catalina.core.ApplicationDispatcher.invoke(ApplicationDispatcher.java:747)
+	at org.apache.catalina.core.ApplicationDispatcher.processRequest(ApplicationDispatcher.java:485)
+	at org.apache.catalina.core.ApplicationDispatcher.doForward(ApplicationDispatcher.java:410)
+	at org.apache.catalina.core.ApplicationDispatcher.forward(ApplicationDispatcher.java:337)
+	at org.codehaus.groovy.grails.web.mapping.UrlMappingUtils.forwardRequestForUrlMappingInfo(UrlMappingUtils.java:178)
+	at org.codehaus.groovy.grails.web.mapping.UrlMappingUtils.forwardRequestForUrlMappingInfo(UrlMappingUtils.java:144)
+	at org.codehaus.groovy.grails.web.mapping.UrlMappingUtils.forwardRequestForUrlMappingInfo(UrlMappingUtils.java:135)
+	at org.codehaus.groovy.grails.web.mapping.filter.UrlMappingsFilter.doFilterInternal(UrlMappingsFilter.java:216)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:241)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:208)
+	at org.codehaus.groovy.grails.web.servlet.mvc.GrailsWebRequestFilter.doFilterInternal(GrailsWebRequestFilter.java:69)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:241)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:208)
+	at org.codehaus.groovy.grails.web.filters.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:67)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:241)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:208)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:85)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:344)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:261)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:241)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:208)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:218)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:122)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:169)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:103)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:116)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:442)
+	at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:1082)
+	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:623)
+	at org.apache.tomcat.util.net.JIoEndpoint$SocketProcessor.run(JIoEndpoint.java:318)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:745)
+2016-07-15 15:20:44,786 [http-bio-8080-exec-7] ERROR StackTrace  - Full Stack Trace:
+org.hibernate.QueryException: duplicate association path: resource
+	at grails.orm.PagedResultList.<init>(PagedResultList.java:43)
+	at grails.orm.HibernateCriteriaBuilder.createPagedResultList(HibernateCriteriaBuilder.java:163)
+	at com.ttnd.linksharing.User.getUnReadResources(User.groovy:71)
+	at com.ttnd.linksharing.UserController.dashboard(UserController.groovy:101)
+	at grails.plugin.cache.web.filter.PageFragmentCachingFilter.doFilter(PageFragmentCachingFilter.java:198)
+	at grails.plugin.cache.web.filter.AbstractFilter.doFilter(AbstractFilter.java:63)
+	at com.ttnd.linksharing.LoginController.index(LoginController.groovy:12)
+	at grails.plugin.cache.web.filter.PageFragmentCachingFilter.doFilter(PageFragmentCachingFilter.java:198)
+	at grails.plugin.cache.web.filter.AbstractFilter.doFilter(AbstractFilter.java:63)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+2016-07-15 15:20:44,801 [http-bio-8080-exec-7] ERROR StackTrace  - Full Stack Trace:
+org.hibernate.QueryException: duplicate association path: resource
+	at grails.orm.PagedResultList.<init>(PagedResultList.java:43)
+	at grails.orm.HibernateCriteriaBuilder.createPagedResultList(HibernateCriteriaBuilder.java:163)
+	at com.ttnd.linksharing.User.getUnReadResources(User.groovy:71)
+	at com.ttnd.linksharing.UserController.dashboard(UserController.groovy:101)
+	at grails.plugin.cache.web.filter.PageFragmentCachingFilter.doFilter(PageFragmentCachingFilter.java:198)
+	at grails.plugin.cache.web.filter.AbstractFilter.doFilter(AbstractFilter.java:63)
+	at com.ttnd.linksharing.LoginController.index(LoginController.groovy:12)
+	at grails.plugin.cache.web.filter.PageFragmentCachingFilter.doFilter(PageFragmentCachingFilter.java:198)
+	at grails.plugin.cache.web.filter.AbstractFilter.doFilter(AbstractFilter.java:63)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+2016-07-15 15:20:44,802 [http-bio-8080-exec-7] ERROR StackTrace  - Full Stack Trace:
+org.hibernate.QueryException: duplicate association path: resource
+	at grails.orm.PagedResultList.<init>(PagedResultList.java:43)
+	at grails.orm.HibernateCriteriaBuilder.createPagedResultList(HibernateCriteriaBuilder.java:163)
+	at com.ttnd.linksharing.User.getUnReadResources(User.groovy:71)
+	at com.ttnd.linksharing.UserController.dashboard(UserController.groovy:101)
+	at grails.plugin.cache.web.filter.PageFragmentCachingFilter.doFilter(PageFragmentCachingFilter.java:198)
+	at grails.plugin.cache.web.filter.AbstractFilter.doFilter(AbstractFilter.java:63)
+	at com.ttnd.linksharing.LoginController.index(LoginController.groovy:12)
+	at grails.plugin.cache.web.filter.PageFragmentCachingFilter.doFilter(PageFragmentCachingFilter.java:198)
+	at grails.plugin.cache.web.filter.AbstractFilter.doFilter(AbstractFilter.java:63)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+2016-07-15 15:21:45,506 [Thread-12] ERROR StackTrace  - Full Stack Trace:
+org.springframework.beans.factory.BeanCreationNotAllowedException: Error creating bean with name 'grailsDomainClassMappingContext': Singleton bean creation not allowed while the singletons of this factory are in destruction (Do not request a bean from a BeanFactory in a destroy method implementation!)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:216)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:299)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:966)
+	at org.springframework.beans.factory.BeanFactory$getBean$1.call(Unknown Source)
+	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCall(CallSiteArray.java:48)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:113)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:133)
+	at grails.plugin.hibernate4.HibernatePluginSupport$__clinit__closure2.doCall(HibernatePluginSupport.groovy:423)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.springsource.loaded.ri.ReflectiveInterceptor.jlrMethodInvoke(ReflectiveInterceptor.java:1426)
+	at org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:93)
+	at groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:325)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1210)
+	at groovy.lang.ExpandoMetaClass.invokeMethod(ExpandoMetaClass.java:1123)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1019)
+	at groovy.lang.Closure.call(Closure.java:426)
+	at org.codehaus.groovy.grails.plugins.DefaultGrailsPlugin.invokeOnChangeListener(DefaultGrailsPlugin.java:767)
+	at org.codehaus.groovy.grails.plugins.DefaultGrailsPlugin.notifyOfEvent(DefaultGrailsPlugin.java:716)
+	at org.codehaus.groovy.grails.plugins.DefaultGrailsPluginManager.informObservers(DefaultGrailsPluginManager.java:242)
+	at org.codehaus.groovy.grails.plugins.DefaultGrailsPlugin.notifyOfEvent(DefaultGrailsPlugin.java:732)
+	at org.codehaus.groovy.grails.plugins.AbstractGrailsPluginManager.informOfClassChange(AbstractGrailsPluginManager.java:408)
+	at org.codehaus.groovy.grails.plugins.AbstractGrailsPluginManager.informOfFileChange(AbstractGrailsPluginManager.java:366)
+	at org.codehaus.groovy.grails.project.compiler.GrailsProjectWatcher.informPluginManager(GrailsProjectWatcher.java:226)
+	at org.codehaus.groovy.grails.project.compiler.GrailsProjectWatcher.access$400(GrailsProjectWatcher.java:48)
+	at org.codehaus.groovy.grails.project.compiler.GrailsProjectWatcher$1.onNew(GrailsProjectWatcher.java:152)
+	at org.codehaus.groovy.grails.compiler.AbstractDirectoryWatcher.fireOnNew(AbstractDirectoryWatcher.java:76)
+	at org.codehaus.groovy.grails.compiler.WatchServiceDirectoryWatcher.run(WatchServiceDirectoryWatcher.java:104)
+	at org.codehaus.groovy.grails.compiler.DirectoryWatcher.run(DirectoryWatcher.java:154)
+	at org.codehaus.groovy.grails.project.compiler.GrailsProjectWatcher.run(GrailsProjectWatcher.java:161)
+	at java_lang_Runnable$run.call(Unknown Source)
+	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCall(CallSiteArray.java:48)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:113)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:117)
+	at org.codehaus.groovy.grails.cli.fork.ForkedGrailsProcess.startProjectWatcher(ForkedGrailsProcess.groovy:748)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.springsource.loaded.ri.ReflectiveInterceptor.jlrMethodInvoke(ReflectiveInterceptor.java:1426)
+	at org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:93)
+	at groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:325)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1210)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1019)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1155)
+	at groovy.lang.ExpandoMetaClass.invokeMethod(ExpandoMetaClass.java:1123)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1019)
+	at org.codehaus.groovy.runtime.callsite.PogoMetaClassSite.callCurrent(PogoMetaClassSite.java:69)
+	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCallCurrent(CallSiteArray.java:52)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callCurrent(AbstractCallSite.java:154)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callCurrent(AbstractCallSite.java:174)
+	at org.codehaus.groovy.grails.cli.fork.ForkedGrailsProcess$_setupReloading_closure17.doCall(ForkedGrailsProcess.groovy:737)
+	at org.codehaus.groovy.grails.cli.fork.ForkedGrailsProcess$_setupReloading_closure17.doCall(ForkedGrailsProcess.groovy)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.springsource.loaded.ri.ReflectiveInterceptor.jlrMethodInvoke(ReflectiveInterceptor.java:1426)
+	at org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:93)
+	at groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:325)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1210)
+	at groovy.lang.ExpandoMetaClass.invokeMethod(ExpandoMetaClass.java:1123)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1019)
+	at groovy.lang.Closure.call(Closure.java:426)
+	at groovy.lang.Closure.call(Closure.java:420)
+	at groovy.lang.Closure.run(Closure.java:507)
+	at java.lang.Thread.run(Thread.java:745)
+2016-07-15 15:21:45,506 [Thread-12] ERROR StackTrace  - Full Stack Trace:
+org.springframework.beans.factory.BeanCreationNotAllowedException: Error creating bean with name 'grailsDomainClassMappingContext': Singleton bean creation not allowed while the singletons of this factory are in destruction (Do not request a bean from a BeanFactory in a destroy method implementation!)
+	at grails.plugin.hibernate4.HibernatePluginSupport$__clinit__closure2.doCall(HibernatePluginSupport.groovy:423)
+	at java.lang.Thread.run(Thread.java:745)
+2016-08-03 17:52:16,221 [main] ERROR StackTrace  - Full Stack Trace:
+Condition not satisfied:
+
+str == "<img src='/user/img/1' height='20px' width='50px'/>"
+|   |
+|   false
+|   3 differences (94% similarity)
+|   <img src='(-)user/im(a)g(e)/1' height='20px' width='50px'/>
+|   <img src='(/)user/im(-)g(-)/1' height='20px' width='50px'/>
+<img src='user/image/1' height='20px' width='50px'/>
+
+	at com.ttnd.linkshring.CustomTagLibSpec.custom tag returns img tag(CustomTagLibSpec.groovy:29)
+2016-08-03 17:52:16,275 [main] ERROR StackTrace  - Full Stack Trace:
+Condition not satisfied:
+
+str == "<img src='/user/img/1' height='20px' width='50px'/>"
+|   |
+|   false
+|   3 differences (94% similarity)
+|   <img src='(-)user/im(a)g(e)/1' height='20px' width='50px'/>
+|   <img src='(/)user/im(-)g(-)/1' height='20px' width='50px'/>
+<img src='user/image/1' height='20px' width='50px'/>
+
+	at com.ttnd.linkshring.CustomTagLibSpec.custom tag returns img tag(CustomTagLibSpec.groovy:29)
+2016-08-03 17:52:16,277 [main] ERROR StackTrace  - Full Stack Trace:
+junit.framework.AssertionFailedError: Condition not satisfied:
+
+str == "<img src='/user/img/1' height='20px' width='50px'/>"
+|   |
+|   false
+|   3 differences (94% similarity)
+|   <img src='(-)user/im(a)g(e)/1' height='20px' width='50px'/>
+|   <img src='(/)user/im(-)g(-)/1' height='20px' width='50px'/>
+<img src='user/image/1' height='20px' width='50px'/>
+
+	at com.ttnd.linkshring.CustomTagLibSpec.custom tag returns img tag(CustomTagLibSpec.groovy:29)
+2016-08-03 17:52:16,277 [main] ERROR StackTrace  - Full Stack Trace:
+junit.framework.AssertionFailedError: Condition not satisfied:
+
+str == "<img src='/user/img/1' height='20px' width='50px'/>"
+|   |
+|   false
+|   3 differences (94% similarity)
+|   <img src='(-)user/im(a)g(e)/1' height='20px' width='50px'/>
+|   <img src='(/)user/im(-)g(-)/1' height='20px' width='50px'/>
+<img src='user/image/1' height='20px' width='50px'/>
+
+	at com.ttnd.linkshring.CustomTagLibSpec.custom tag returns img tag(CustomTagLibSpec.groovy:29)
+2016-08-03 17:52:16,283 [main] ERROR StackTrace  - Full Stack Trace:
+junit.framework.AssertionFailedError: Condition not satisfied:
+
+str == "<img src='/user/img/1' height='20px' width='50px'/>"
+|   |
+|   false
+|   3 differences (94% similarity)
+|   <img src='(-)user/im(a)g(e)/1' height='20px' width='50px'/>
+|   <img src='(/)user/im(-)g(-)/1' height='20px' width='50px'/>
+<img src='user/image/1' height='20px' width='50px'/>
+
+	at com.ttnd.linkshring.CustomTagLibSpec.custom tag returns img tag(CustomTagLibSpec.groovy:29)
+2016-08-03 17:52:16,284 [main] ERROR StackTrace  - Full Stack Trace:
+junit.framework.AssertionFailedError: Condition not satisfied:
+
+str == "<img src='/user/img/1' height='20px' width='50px'/>"
+|   |
+|   false
+|   3 differences (94% similarity)
+|   <img src='(-)user/im(a)g(e)/1' height='20px' width='50px'/>
+|   <img src='(/)user/im(-)g(-)/1' height='20px' width='50px'/>
+<img src='user/image/1' height='20px' width='50px'/>
+
+	at com.ttnd.linkshring.CustomTagLibSpec.custom tag returns img tag(CustomTagLibSpec.groovy:29)
+2016-08-03 17:52:18,817 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.NullPointerException: Cannot get property 'id' on null object
+	at com.ttnd.linksharing.TopicController.delete(TopicController.groovy:49)
+	at com.ttnd.linksharing.TopicControllerSpec.test something(TopicControllerSpec.groovy:31)
+2016-08-03 17:52:18,817 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.NullPointerException: Cannot get property 'id' on null object
+	at com.ttnd.linksharing.TopicController.delete(TopicController.groovy:49)
+	at com.ttnd.linksharing.TopicControllerSpec.test something(TopicControllerSpec.groovy:31)
+2016-08-03 17:52:18,817 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.NullPointerException: Cannot get property 'id' on null object
+	at com.ttnd.linksharing.TopicController.delete(TopicController.groovy:49)
+	at com.ttnd.linksharing.TopicControllerSpec.test something(TopicControllerSpec.groovy:31)
+2016-08-03 17:52:18,817 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.NullPointerException: Cannot get property 'id' on null object
+	at com.ttnd.linksharing.TopicController.delete(TopicController.groovy:49)
+	at com.ttnd.linksharing.TopicControllerSpec.test something(TopicControllerSpec.groovy:31)
+2016-08-03 17:52:18,817 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.NullPointerException: Cannot get property 'id' on null object
+	at com.ttnd.linksharing.TopicController.delete(TopicController.groovy:49)
+	at com.ttnd.linksharing.TopicControllerSpec.test something(TopicControllerSpec.groovy:31)
+2016-08-03 17:52:18,817 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.NullPointerException: Cannot get property 'id' on null object
+	at com.ttnd.linksharing.TopicController.delete(TopicController.groovy:49)
+	at com.ttnd.linksharing.TopicControllerSpec.test something(TopicControllerSpec.groovy:31)
+2016-08-03 17:52:20,535 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.NullPointerException: Cannot get property 'id' on null object
+	at com.ttnd.linksharing.SubscriptionController.delete(SubscriptionController.groovy:28)
+	at com.ttnd.linksharing.SubscriptionControllerSpec.subscription should be deleted when user unsubscribes(SubscriptionControllerSpec.groovy:59)
+2016-08-03 17:52:20,536 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.NullPointerException: Cannot get property 'id' on null object
+	at com.ttnd.linksharing.SubscriptionController.delete(SubscriptionController.groovy:28)
+	at com.ttnd.linksharing.SubscriptionControllerSpec.subscription should be deleted when user unsubscribes(SubscriptionControllerSpec.groovy:59)
+2016-08-03 17:52:20,536 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.NullPointerException: Cannot get property 'id' on null object
+	at com.ttnd.linksharing.SubscriptionController.delete(SubscriptionController.groovy:28)
+	at com.ttnd.linksharing.SubscriptionControllerSpec.subscription should be deleted when user unsubscribes(SubscriptionControllerSpec.groovy:59)
+2016-08-03 17:52:20,536 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.NullPointerException: Cannot get property 'id' on null object
+	at com.ttnd.linksharing.SubscriptionController.delete(SubscriptionController.groovy:28)
+	at com.ttnd.linksharing.SubscriptionControllerSpec.subscription should be deleted when user unsubscribes(SubscriptionControllerSpec.groovy:59)
+2016-08-03 17:52:20,536 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.NullPointerException: Cannot get property 'id' on null object
+	at com.ttnd.linksharing.SubscriptionController.delete(SubscriptionController.groovy:28)
+	at com.ttnd.linksharing.SubscriptionControllerSpec.subscription should be deleted when user unsubscribes(SubscriptionControllerSpec.groovy:59)
+2016-08-03 17:52:20,537 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.NullPointerException: Cannot get property 'id' on null object
+	at com.ttnd.linksharing.SubscriptionController.delete(SubscriptionController.groovy:28)
+	at com.ttnd.linksharing.SubscriptionControllerSpec.subscription should be deleted when user unsubscribes(SubscriptionControllerSpec.groovy:59)
+2016-08-03 17:52:20,990 [main] ERROR StackTrace  - Full Stack Trace:
+Condition not satisfied:
+
+response.getContentAsString() == 'User not found'
+|        |                    |
+|        ""                   false
+|                             14 differences (0% similarity)
+|                             (--------------)
+|                             (User not found)
+org.codehaus.groovy.grails.plugins.testing.GrailsMockHttpServletResponse@6c18a03
+
+	at com.ttnd.linksharing.LoginControllerSpec.user is  unable to login, if username or password is not right(LoginControllerSpec.groovy:55)
+2016-08-03 17:52:20,991 [main] ERROR StackTrace  - Full Stack Trace:
+Condition not satisfied:
+
+response.getContentAsString() == 'User not found'
+|        |                    |
+|        ""                   false
+|                             14 differences (0% similarity)
+|                             (--------------)
+|                             (User not found)
+org.codehaus.groovy.grails.plugins.testing.GrailsMockHttpServletResponse@6c18a03
+
+	at com.ttnd.linksharing.LoginControllerSpec.user is  unable to login, if username or password is not right(LoginControllerSpec.groovy:55)
+2016-08-03 17:52:20,991 [main] ERROR StackTrace  - Full Stack Trace:
+junit.framework.AssertionFailedError: Condition not satisfied:
+
+response.getContentAsString() == 'User not found'
+|        |                    |
+|        ""                   false
+|                             14 differences (0% similarity)
+|                             (--------------)
+|                             (User not found)
+org.codehaus.groovy.grails.plugins.testing.GrailsMockHttpServletResponse@6c18a03
+
+	at com.ttnd.linksharing.LoginControllerSpec.user is  unable to login, if username or password is not right(LoginControllerSpec.groovy:55)
+2016-08-03 17:52:20,992 [main] ERROR StackTrace  - Full Stack Trace:
+junit.framework.AssertionFailedError: Condition not satisfied:
+
+response.getContentAsString() == 'User not found'
+|        |                    |
+|        ""                   false
+|                             14 differences (0% similarity)
+|                             (--------------)
+|                             (User not found)
+org.codehaus.groovy.grails.plugins.testing.GrailsMockHttpServletResponse@6c18a03
+
+	at com.ttnd.linksharing.LoginControllerSpec.user is  unable to login, if username or password is not right(LoginControllerSpec.groovy:55)
+2016-08-03 17:52:20,992 [main] ERROR StackTrace  - Full Stack Trace:
+junit.framework.AssertionFailedError: Condition not satisfied:
+
+response.getContentAsString() == 'User not found'
+|        |                    |
+|        ""                   false
+|                             14 differences (0% similarity)
+|                             (--------------)
+|                             (User not found)
+org.codehaus.groovy.grails.plugins.testing.GrailsMockHttpServletResponse@6c18a03
+
+	at com.ttnd.linksharing.LoginControllerSpec.user is  unable to login, if username or password is not right(LoginControllerSpec.groovy:55)
+2016-08-03 17:52:20,992 [main] ERROR StackTrace  - Full Stack Trace:
+junit.framework.AssertionFailedError: Condition not satisfied:
+
+response.getContentAsString() == 'User not found'
+|        |                    |
+|        ""                   false
+|                             14 differences (0% similarity)
+|                             (--------------)
+|                             (User not found)
+org.codehaus.groovy.grails.plugins.testing.GrailsMockHttpServletResponse@6c18a03
+
+	at com.ttnd.linksharing.LoginControllerSpec.user is  unable to login, if username or password is not right(LoginControllerSpec.groovy:55)
+2016-08-03 17:52:21,004 [main] ERROR StackTrace  - Full Stack Trace:
+Condition not satisfied:
+
+response.getContentAsString() == 'Your account is not active'
+|        |                    |
+|        ""                   false
+|                             26 differences (0% similarity)
+|                             (--------------------------)
+|                             (Your account is not active)
+org.codehaus.groovy.grails.plugins.testing.GrailsMockHttpServletResponse@1f791776
+
+	at com.ttnd.linksharing.LoginControllerSpec.user is  unable to login, if username or password is  right but user is not active(LoginControllerSpec.groovy:73)
+2016-08-03 17:52:21,005 [main] ERROR StackTrace  - Full Stack Trace:
+Condition not satisfied:
+
+response.getContentAsString() == 'Your account is not active'
+|        |                    |
+|        ""                   false
+|                             26 differences (0% similarity)
+|                             (--------------------------)
+|                             (Your account is not active)
+org.codehaus.groovy.grails.plugins.testing.GrailsMockHttpServletResponse@1f791776
+
+	at com.ttnd.linksharing.LoginControllerSpec.user is  unable to login, if username or password is  right but user is not active(LoginControllerSpec.groovy:73)
+2016-08-03 17:52:21,006 [main] ERROR StackTrace  - Full Stack Trace:
+junit.framework.AssertionFailedError: Condition not satisfied:
+
+response.getContentAsString() == 'Your account is not active'
+|        |                    |
+|        ""                   false
+|                             26 differences (0% similarity)
+|                             (--------------------------)
+|                             (Your account is not active)
+org.codehaus.groovy.grails.plugins.testing.GrailsMockHttpServletResponse@1f791776
+
+	at com.ttnd.linksharing.LoginControllerSpec.user is  unable to login, if username or password is  right but user is not active(LoginControllerSpec.groovy:73)
+2016-08-03 17:52:21,006 [main] ERROR StackTrace  - Full Stack Trace:
+junit.framework.AssertionFailedError: Condition not satisfied:
+
+response.getContentAsString() == 'Your account is not active'
+|        |                    |
+|        ""                   false
+|                             26 differences (0% similarity)
+|                             (--------------------------)
+|                             (Your account is not active)
+org.codehaus.groovy.grails.plugins.testing.GrailsMockHttpServletResponse@1f791776
+
+	at com.ttnd.linksharing.LoginControllerSpec.user is  unable to login, if username or password is  right but user is not active(LoginControllerSpec.groovy:73)
+2016-08-03 17:52:21,006 [main] ERROR StackTrace  - Full Stack Trace:
+junit.framework.AssertionFailedError: Condition not satisfied:
+
+response.getContentAsString() == 'Your account is not active'
+|        |                    |
+|        ""                   false
+|                             26 differences (0% similarity)
+|                             (--------------------------)
+|                             (Your account is not active)
+org.codehaus.groovy.grails.plugins.testing.GrailsMockHttpServletResponse@1f791776
+
+	at com.ttnd.linksharing.LoginControllerSpec.user is  unable to login, if username or password is  right but user is not active(LoginControllerSpec.groovy:73)
+2016-08-03 17:52:21,006 [main] ERROR StackTrace  - Full Stack Trace:
+junit.framework.AssertionFailedError: Condition not satisfied:
+
+response.getContentAsString() == 'Your account is not active'
+|        |                    |
+|        ""                   false
+|                             26 differences (0% similarity)
+|                             (--------------------------)
+|                             (Your account is not active)
+org.codehaus.groovy.grails.plugins.testing.GrailsMockHttpServletResponse@1f791776
+
+	at com.ttnd.linksharing.LoginControllerSpec.user is  unable to login, if username or password is  right but user is not active(LoginControllerSpec.groovy:73)
+2016-08-03 17:52:21,176 [main] ERROR StackTrace  - Full Stack Trace:
+Condition not satisfied:
+
+result == output
+|      |  |
+false  |  true
+       false
+
+	at com.ttnd.linksharing.UserSpec.email should be email (UserSpec.groovy:28)
+2016-08-03 17:52:21,176 [main] ERROR StackTrace  - Full Stack Trace:
+Condition not satisfied:
+
+result == output
+|      |  |
+false  |  true
+       false
+
+	at com.ttnd.linksharing.UserSpec.email should be email (UserSpec.groovy:28)
+2016-08-03 17:52:21,176 [main] ERROR StackTrace  - Full Stack Trace:
+junit.framework.AssertionFailedError: Condition not satisfied:
+
+result == output
+|      |  |
+false  |  true
+       false
+
+	at com.ttnd.linksharing.UserSpec.email should be email (UserSpec.groovy:28)
+2016-08-03 17:52:21,177 [main] ERROR StackTrace  - Full Stack Trace:
+junit.framework.AssertionFailedError: Condition not satisfied:
+
+result == output
+|      |  |
+false  |  true
+       false
+
+	at com.ttnd.linksharing.UserSpec.email should be email (UserSpec.groovy:28)
+2016-08-03 17:52:21,177 [main] ERROR StackTrace  - Full Stack Trace:
+junit.framework.AssertionFailedError: Condition not satisfied:
+
+result == output
+|      |  |
+false  |  true
+       false
+
+	at com.ttnd.linksharing.UserSpec.email should be email (UserSpec.groovy:28)
+2016-08-03 17:52:21,177 [main] ERROR StackTrace  - Full Stack Trace:
+junit.framework.AssertionFailedError: Condition not satisfied:
+
+result == output
+|      |  |
+false  |  true
+       false
+
+	at com.ttnd.linksharing.UserSpec.email should be email (UserSpec.groovy:28)
+2016-08-03 17:52:21,226 [main] ERROR StackTrace  - Full Stack Trace:
+Condition not satisfied:
+
+User.count == 1
+     |     |
+     0     false
+
+	at com.ttnd.linksharing.UserSpec.email should be email and unique(UserSpec.groovy:43)
+2016-08-03 17:52:21,227 [main] ERROR StackTrace  - Full Stack Trace:
+Condition not satisfied:
+
+User.count == 1
+     |     |
+     0     false
+
+	at com.ttnd.linksharing.UserSpec.email should be email and unique(UserSpec.groovy:43)
+2016-08-03 17:52:21,227 [main] ERROR StackTrace  - Full Stack Trace:
+junit.framework.AssertionFailedError: Condition not satisfied:
+
+User.count == 1
+     |     |
+     0     false
+
+	at com.ttnd.linksharing.UserSpec.email should be email and unique(UserSpec.groovy:43)
+2016-08-03 17:52:21,227 [main] ERROR StackTrace  - Full Stack Trace:
+junit.framework.AssertionFailedError: Condition not satisfied:
+
+User.count == 1
+     |     |
+     0     false
+
+	at com.ttnd.linksharing.UserSpec.email should be email and unique(UserSpec.groovy:43)
+2016-08-03 17:52:21,227 [main] ERROR StackTrace  - Full Stack Trace:
+junit.framework.AssertionFailedError: Condition not satisfied:
+
+User.count == 1
+     |     |
+     0     false
+
+	at com.ttnd.linksharing.UserSpec.email should be email and unique(UserSpec.groovy:43)
+2016-08-03 17:52:21,228 [main] ERROR StackTrace  - Full Stack Trace:
+junit.framework.AssertionFailedError: Condition not satisfied:
+
+User.count == 1
+     |     |
+     0     false
+
+	at com.ttnd.linksharing.UserSpec.email should be email and unique(UserSpec.groovy:43)
+2016-08-03 17:52:21,272 [main] ERROR StackTrace  - Full Stack Trace:
+Condition not satisfied:
+
+User.count==1
+     |    |
+     0    false
+
+	at com.ttnd.linksharing.UserSpec.Username of User should be unique(UserSpec.groovy:61)
+2016-08-03 17:52:21,272 [main] ERROR StackTrace  - Full Stack Trace:
+Condition not satisfied:
+
+User.count==1
+     |    |
+     0    false
+
+	at com.ttnd.linksharing.UserSpec.Username of User should be unique(UserSpec.groovy:61)
+2016-08-03 17:52:21,273 [main] ERROR StackTrace  - Full Stack Trace:
+junit.framework.AssertionFailedError: Condition not satisfied:
+
+User.count==1
+     |    |
+     0    false
+
+	at com.ttnd.linksharing.UserSpec.Username of User should be unique(UserSpec.groovy:61)
+2016-08-03 17:52:21,273 [main] ERROR StackTrace  - Full Stack Trace:
+junit.framework.AssertionFailedError: Condition not satisfied:
+
+User.count==1
+     |    |
+     0    false
+
+	at com.ttnd.linksharing.UserSpec.Username of User should be unique(UserSpec.groovy:61)
+2016-08-03 17:52:21,273 [main] ERROR StackTrace  - Full Stack Trace:
+junit.framework.AssertionFailedError: Condition not satisfied:
+
+User.count==1
+     |    |
+     0    false
+
+	at com.ttnd.linksharing.UserSpec.Username of User should be unique(UserSpec.groovy:61)
+2016-08-03 17:52:21,273 [main] ERROR StackTrace  - Full Stack Trace:
+junit.framework.AssertionFailedError: Condition not satisfied:
+
+User.count==1
+     |    |
+     0    false
+
+	at com.ttnd.linksharing.UserSpec.Username of User should be unique(UserSpec.groovy:61)
+2016-08-03 17:52:21,323 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.NullPointerException: Cannot get property 'firstName' on null object
+	at com.ttnd.linksharing.UserSpec.user is found using username and password(UserSpec.groovy:78)
+2016-08-03 17:52:21,323 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.NullPointerException: Cannot get property 'firstName' on null object
+	at com.ttnd.linksharing.UserSpec.user is found using username and password(UserSpec.groovy:78)
+2016-08-03 17:52:21,324 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.NullPointerException: Cannot get property 'firstName' on null object
+	at com.ttnd.linksharing.UserSpec.user is found using username and password(UserSpec.groovy:78)
+2016-08-03 17:52:21,324 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.NullPointerException: Cannot get property 'firstName' on null object
+	at com.ttnd.linksharing.UserSpec.user is found using username and password(UserSpec.groovy:78)
+2016-08-03 17:52:21,324 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.NullPointerException: Cannot get property 'firstName' on null object
+	at com.ttnd.linksharing.UserSpec.user is found using username and password(UserSpec.groovy:78)
+2016-08-03 17:52:21,324 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.NullPointerException: Cannot get property 'firstName' on null object
+	at com.ttnd.linksharing.UserSpec.user is found using username and password(UserSpec.groovy:78)
+2016-08-03 17:52:21,871 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.IllegalStateException: Method on class [com.ttnd.linksharing.LinkResource] was used outside of a Grails application. If running in the context of a test using the mocking API or bootstrap Grails correctly.
+	at com.ttnd.linksharing.ResourceRatingSpec.resource rating saved when between 1 and 5(ResourceRatingSpec.groovy:44)
+2016-08-03 17:52:21,871 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.IllegalStateException: Method on class [com.ttnd.linksharing.LinkResource] was used outside of a Grails application. If running in the context of a test using the mocking API or bootstrap Grails correctly.
+	at com.ttnd.linksharing.ResourceRatingSpec.resource rating saved when between 1 and 5(ResourceRatingSpec.groovy:44)
+2016-08-03 17:52:21,871 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.IllegalStateException: Method on class [com.ttnd.linksharing.LinkResource] was used outside of a Grails application. If running in the context of a test using the mocking API or bootstrap Grails correctly.
+	at com.ttnd.linksharing.ResourceRatingSpec.resource rating saved when between 1 and 5(ResourceRatingSpec.groovy:44)
+2016-08-03 17:52:21,871 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.IllegalStateException: Method on class [com.ttnd.linksharing.LinkResource] was used outside of a Grails application. If running in the context of a test using the mocking API or bootstrap Grails correctly.
+	at com.ttnd.linksharing.ResourceRatingSpec.resource rating saved when between 1 and 5(ResourceRatingSpec.groovy:44)
+2016-08-03 17:52:21,872 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.IllegalStateException: Method on class [com.ttnd.linksharing.LinkResource] was used outside of a Grails application. If running in the context of a test using the mocking API or bootstrap Grails correctly.
+	at com.ttnd.linksharing.ResourceRatingSpec.resource rating saved when between 1 and 5(ResourceRatingSpec.groovy:44)
+2016-08-03 17:52:21,872 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.IllegalStateException: Method on class [com.ttnd.linksharing.LinkResource] was used outside of a Grails application. If running in the context of a test using the mocking API or bootstrap Grails correctly.
+	at com.ttnd.linksharing.ResourceRatingSpec.resource rating saved when between 1 and 5(ResourceRatingSpec.groovy:44)
+2016-08-03 17:52:21,913 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.IllegalStateException: Method on class [com.ttnd.linksharing.LinkResource] was used outside of a Grails application. If running in the context of a test using the mocking API or bootstrap Grails correctly.
+	at com.ttnd.linksharing.ResourceRatingSpec.resource rating should be unique per user and resource combination(ResourceRatingSpec.groovy:65)
+2016-08-03 17:52:21,913 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.IllegalStateException: Method on class [com.ttnd.linksharing.LinkResource] was used outside of a Grails application. If running in the context of a test using the mocking API or bootstrap Grails correctly.
+	at com.ttnd.linksharing.ResourceRatingSpec.resource rating should be unique per user and resource combination(ResourceRatingSpec.groovy:65)
+2016-08-03 17:52:21,913 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.IllegalStateException: Method on class [com.ttnd.linksharing.LinkResource] was used outside of a Grails application. If running in the context of a test using the mocking API or bootstrap Grails correctly.
+	at com.ttnd.linksharing.ResourceRatingSpec.resource rating should be unique per user and resource combination(ResourceRatingSpec.groovy:65)
+2016-08-03 17:52:21,913 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.IllegalStateException: Method on class [com.ttnd.linksharing.LinkResource] was used outside of a Grails application. If running in the context of a test using the mocking API or bootstrap Grails correctly.
+	at com.ttnd.linksharing.ResourceRatingSpec.resource rating should be unique per user and resource combination(ResourceRatingSpec.groovy:65)
+2016-08-03 17:52:21,914 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.IllegalStateException: Method on class [com.ttnd.linksharing.LinkResource] was used outside of a Grails application. If running in the context of a test using the mocking API or bootstrap Grails correctly.
+	at com.ttnd.linksharing.ResourceRatingSpec.resource rating should be unique per user and resource combination(ResourceRatingSpec.groovy:65)
+2016-08-03 17:52:21,914 [main] ERROR StackTrace  - Full Stack Trace:
+java.lang.IllegalStateException: Method on class [com.ttnd.linksharing.LinkResource] was used outside of a Grails application. If running in the context of a test using the mocking API or bootstrap Grails correctly.
+	at com.ttnd.linksharing.ResourceRatingSpec.resource rating should be unique per user and resource combination(ResourceRatingSpec.groovy:65)

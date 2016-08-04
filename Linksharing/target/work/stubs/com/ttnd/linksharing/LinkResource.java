@@ -21,4 +21,5 @@ public  void setUrl(java.lang.String value) { }
 public static  java.lang.Object getMapping() { return null;}
 public static  void setMapping(java.lang.Object value) { }
 @java.lang.Override() public  java.lang.String toString() { return (java.lang.String)null;}
+public  java.lang.Object afterInsert() { return null;}
 }

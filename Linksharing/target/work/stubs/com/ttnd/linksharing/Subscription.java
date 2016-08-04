@@ -20,8 +20,8 @@ public  com.ttnd.linksharing.Topic getTopic() { return (com.ttnd.linksharing.Top
 public  void setTopic(com.ttnd.linksharing.Topic value) { }
 public  com.ttnd.linksharing.User getUser() { return (com.ttnd.linksharing.User)null;}
 public  void setUser(com.ttnd.linksharing.User value) { }
-public  com.ttnd.linksharing.Seriouness getSeriouness() { return (com.ttnd.linksharing.Seriouness)null;}
-public  void setSeriouness(com.ttnd.linksharing.Seriouness value) { }
+public  com.ttnd.linksharing.Seriouness getSeriousness() { return (com.ttnd.linksharing.Seriouness)null;}
+public  void setSeriousness(com.ttnd.linksharing.Seriouness value) { }
 public  java.util.Date getDateCreated() { return (java.util.Date)null;}
 public  void setDateCreated(java.util.Date value) { }
 public static  java.lang.Object getBelongsTo() { return null;}

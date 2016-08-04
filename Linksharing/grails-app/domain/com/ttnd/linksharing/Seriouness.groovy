@@ -9,13 +9,13 @@ enum Seriouness {
     Casual
 
     static final SERIOUSNESS_SERIOUS = "Serious"
-    static final SERIOUSNESS_VERY_SERIOUS = "Very Serious"
-    static final SERIOUSNESS_CASUAL = "CASUAL"
+    static final SERIOUSNESS_VERY_SERIOUS = "VerySerious"
+    static final SERIOUSNESS_CASUAL = "Casual"
 
     static Seriouness getSeriousnessFromString(String str){
-        if(str == SERIOUSNESS_VERY_SERIOUS){
+        if(str.equalsIgnoreCase(SERIOUSNESS_VERY_SERIOUS)){
             return Very_Serious
-        }else if(str == SERIOUSNESS_CASUAL){
+        }else if(str.equalsIgnoreCase(SERIOUSNESS_CASUAL)){
             return Casual
         }else{
             return Serious

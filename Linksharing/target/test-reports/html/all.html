@@ -14,9 +14,16 @@
         Unit Test Results
      - All tests </h1>
 <p class="intro">
-                        A single test executed
+                        Executed
+                        21
+                        tests
                     
-                        without a single error or failure!
+                        with
+                        5 errors
+
+                        and
+                        6 failures
+                        .
                     </p>
 </div>
 <div class="grid_2 omega">
@@ -39,21 +46,136 @@
 </nav>
 </div>
 <div class="clear"></div>
-<div class="testsuite success">
+<div class="testsuite error">
 <div class="header">
-<h2>ResourceSpec</h2>
+<h2>UserSpec</h2>
 <h3>
-                        A single test executed
+                        Executed
+                        5
+                        tests
                     
-                        without a single error or failure!
+                        with
+                        one error
+
+                        and
+                        3 failures
+                        .
                     </h3>
 </div>
-<div class="testcase clearfix success grid_8 alpha omega" data-name="getRatingInfo returns correct data">
+<div class="testcase clearfix failure grid_8 alpha omega" data-name="email should be email ">
 <div class="grid_3 alpha">
 <p>
-<span class="icon success"></span><b class="testname message success">getRatingInfo returns correct data</b>
+<span class="icon failure"></span><b class="testname message failure">email should be email </b>
 </p>
-<p class="summary">Executed in 6.065 seconds.</p>
+<p class="summary">Executed in 0.162 seconds.</p>
+</div>
+<div class="grid_5 omega outputinfo">
+<div class="details">
+<p>
+<b class="message">Condition not satisfied:
+
+result == output
+|      |  |
+false  |  true
+       false
+</b>
+</p>
+<pre>junit.framework.AssertionFailedError: Condition not satisfied:
+
+result == output
+|      |  |
+false  |  true
+       false
+
+	at com.ttnd.linksharing.UserSpec.email should be email (UserSpec.groovy:28)
+</pre>
+</div>
+</div>
+<div class="clear"></div>
+</div>
+<div class="testcase clearfix failure grid_8 alpha omega" data-name="email should be email and unique">
+<div class="grid_3 alpha">
+<p>
+<span class="icon failure"></span><b class="testname message failure">email should be email and unique</b>
+</p>
+<p class="summary">Executed in 0.048 seconds.</p>
+</div>
+<div class="grid_5 omega outputinfo">
+<div class="details">
+<p>
+<b class="message">Condition not satisfied:
+
+User.count == 1
+     |     |
+     0     false
+</b>
+</p>
+<pre>junit.framework.AssertionFailedError: Condition not satisfied:
+
+User.count == 1
+     |     |
+     0     false
+
+	at com.ttnd.linksharing.UserSpec.email should be email and unique(UserSpec.groovy:43)
+</pre>
+</div>
+</div>
+<div class="clear"></div>
+</div>
+<div class="testcase clearfix failure grid_8 alpha omega" data-name="Username of User should be unique">
+<div class="grid_3 alpha">
+<p>
+<span class="icon failure"></span><b class="testname message failure">Username of User should be unique</b>
+</p>
+<p class="summary">Executed in 0.045 seconds.</p>
+</div>
+<div class="grid_5 omega outputinfo">
+<div class="details">
+<p>
+<b class="message">Condition not satisfied:
+
+User.count==1
+     |    |
+     0    false
+</b>
+</p>
+<pre>junit.framework.AssertionFailedError: Condition not satisfied:
+
+User.count==1
+     |    |
+     0    false
+
+	at com.ttnd.linksharing.UserSpec.Username of User should be unique(UserSpec.groovy:61)
+</pre>
+</div>
+</div>
+<div class="clear"></div>
+</div>
+<div class="testcase clearfix error grid_8 alpha omega" data-name="user is found using username and password">
+<div class="grid_3 alpha">
+<p>
+<span class="icon error"></span><b class="testname message error">user is found using username and password</b>
+</p>
+<p class="summary">Executed in 0.051 seconds.</p>
+</div>
+<div class="grid_5 omega outputinfo">
+<div class="details">
+<p>
+<b class="message">Cannot get property 'firstName' on null object</b>
+</p>
+<pre>java.lang.NullPointerException: Cannot get property 'firstName' on null object
+	at com.ttnd.linksharing.UserSpec.user is found using username and password(UserSpec.groovy:78)
+</pre>
+</div>
+</div>
+<div class="clear"></div>
+</div>
+<div class="testcase clearfix success grid_8 alpha omega" data-name="toString method should return username of the user">
+<div class="grid_3 alpha">
+<p>
+<span class="icon success"></span><b class="testname message success">toString method should return username of the user</b>
+</p>
+<p class="summary">Executed in 0.054 seconds.</p>
 </div>
 <div class="grid_5 omega outputinfo"></div>
 <div class="clear"></div>
@@ -61,29 +183,519 @@
 <div class="clearfix output footer">
 <div class="sysout">
 <h2>Standard output</h2>
-<pre class="stdout">--Output from getRatingInfo returns correct data--
-Hibernate: select this_.id as id1_1_0_, this_.version as version2_1_0_, this_.created_by_id as created_3_1_0_, this_.date_created as date_cre4_1_0_, this_.description as descript5_1_0_, this_.last_updated as last_upd6_1_0_, this_.topic_id as topic_id7_1_0_, this_.file_path as file_pat9_1_0_, this_.url as url10_1_0_, this_.content_type as content_8_1_0_ from resource this_ where this_.id=? limit ?
-Hibernate: select user0_.id as id1_5_0_, user0_.version as version2_5_0_, user0_.active as active3_5_0_, user0_.admin as admin4_5_0_, user0_.date_created as date_cre5_5_0_, user0_.email as email6_5_0_, user0_.first_name as first_na7_5_0_, user0_.last_name as last_nam8_5_0_, user0_.last_updated as last_upd9_5_0_, user0_.password as passwor10_5_0_, user0_.photo as photo11_5_0_, user0_.username as usernam12_5_0_ from user user0_ where user0_.id=?
-Hibernate: select subscripti0_.user_id as user_id6_5_0_, subscripti0_.id as id1_3_0_, subscripti0_.id as id1_3_1_, subscripti0_.version as version2_3_1_, subscripti0_.date_created as date_cre3_3_1_, subscripti0_.seriousness as seriousn4_3_1_, subscripti0_.topic_id as topic_id5_3_1_, subscripti0_.user_id as user_id6_3_1_ from subscription subscripti0_ where subscripti0_.user_id=?
-Hibernate: select topic0_.id as id1_4_0_, topic0_.version as version2_4_0_, topic0_.created_by_id as created_3_4_0_, topic0_.date_created as date_cre4_4_0_, topic0_.name as name5_4_0_, topic0_.visibility as visibili6_4_0_ from topic topic0_ where topic0_.id=?
-Hibernate: select topic0_.id as id1_4_0_, topic0_.version as version2_4_0_, topic0_.created_by_id as created_3_4_0_, topic0_.date_created as date_cre4_4_0_, topic0_.name as name5_4_0_, topic0_.visibility as visibili6_4_0_ from topic topic0_ where topic0_.id=?
-Hibernate: select topic0_.id as id1_4_0_, topic0_.version as version2_4_0_, topic0_.created_by_id as created_3_4_0_, topic0_.date_created as date_cre4_4_0_, topic0_.name as name5_4_0_, topic0_.visibility as visibili6_4_0_ from topic topic0_ where topic0_.id=?
-Hibernate: select topic0_.id as id1_4_0_, topic0_.version as version2_4_0_, topic0_.created_by_id as created_3_4_0_, topic0_.date_created as date_cre4_4_0_, topic0_.name as name5_4_0_, topic0_.visibility as visibili6_4_0_ from topic topic0_ where topic0_.id=?
-Hibernate: select topic0_.id as id1_4_0_, topic0_.version as version2_4_0_, topic0_.created_by_id as created_3_4_0_, topic0_.date_created as date_cre4_4_0_, topic0_.name as name5_4_0_, topic0_.visibility as visibili6_4_0_ from topic topic0_ where topic0_.id=?
-Hibernate: select subscripti0_.topic_id as topic_id5_4_0_, subscripti0_.id as id1_3_0_, subscripti0_.id as id1_3_1_, subscripti0_.version as version2_3_1_, subscripti0_.date_created as date_cre3_3_1_, subscripti0_.seriousness as seriousn4_3_1_, subscripti0_.topic_id as topic_id5_3_1_, subscripti0_.user_id as user_id6_3_1_ from subscription subscripti0_ where subscripti0_.topic_id=?
-Hibernate: select subscripti0_.topic_id as topic_id5_4_0_, subscripti0_.id as id1_3_0_, subscripti0_.id as id1_3_1_, subscripti0_.version as version2_3_1_, subscripti0_.date_created as date_cre3_3_1_, subscripti0_.seriousness as seriousn4_3_1_, subscripti0_.topic_id as topic_id5_3_1_, subscripti0_.user_id as user_id6_3_1_ from subscription subscripti0_ where subscripti0_.topic_id=?
-Hibernate: select subscripti0_.topic_id as topic_id5_4_0_, subscripti0_.id as id1_3_0_, subscripti0_.id as id1_3_1_, subscripti0_.version as version2_3_1_, subscripti0_.date_created as date_cre3_3_1_, subscripti0_.seriousness as seriousn4_3_1_, subscripti0_.topic_id as topic_id5_3_1_, subscripti0_.user_id as user_id6_3_1_ from subscription subscripti0_ where subscripti0_.topic_id=?
-Hibernate: select subscripti0_.topic_id as topic_id5_4_0_, subscripti0_.id as id1_3_0_, subscripti0_.id as id1_3_1_, subscripti0_.version as version2_3_1_, subscripti0_.date_created as date_cre3_3_1_, subscripti0_.seriousness as seriousn4_3_1_, subscripti0_.topic_id as topic_id5_3_1_, subscripti0_.user_id as user_id6_3_1_ from subscription subscripti0_ where subscripti0_.topic_id=?
-Hibernate: select subscripti0_.topic_id as topic_id5_4_0_, subscripti0_.id as id1_3_0_, subscripti0_.id as id1_3_1_, subscripti0_.version as version2_3_1_, subscripti0_.date_created as date_cre3_3_1_, subscripti0_.seriousness as seriousn4_3_1_, subscripti0_.topic_id as topic_id5_3_1_, subscripti0_.user_id as user_id6_3_1_ from subscription subscripti0_ where subscripti0_.topic_id=?
-Hibernate: select resources0_.created_by_id as created_3_5_0_, resources0_.id as id1_1_0_, resources0_.id as id1_1_1_, resources0_.version as version2_1_1_, resources0_.created_by_id as created_3_1_1_, resources0_.date_created as date_cre4_1_1_, resources0_.description as descript5_1_1_, resources0_.last_updated as last_upd6_1_1_, resources0_.topic_id as topic_id7_1_1_, resources0_.file_path as file_pat9_1_1_, resources0_.url as url10_1_1_, resources0_.content_type as content_8_1_1_ from resource resources0_ where resources0_.created_by_id=?
-Hibernate: select sum(this_.rating) as y0_ from resource_rating this_ where this_.resource_id=?
-Hibernate: select count(*) as y0_ from resource_rating this_ where this_.resource_id=?
-Hibernate: select resourcera0_.resource_id as resource4_1_0_, resourcera0_.id as id1_2_0_, resourcera0_.id as id1_2_1_, resourcera0_.version as version2_2_1_, resourcera0_.rating as rating3_2_1_, resourcera0_.resource_id as resource4_2_1_, resourcera0_.user_id as user_id5_2_1_ from resource_rating resourcera0_ where resourcera0_.resource_id=?
+<pre class="stdout">--Output from email should be email --
+--Output from email should be email and unique--
+--Output from Username of User should be unique--
+--Output from user is found using username and password--
+--Output from toString method should return username of the user--
 </pre>
 </div>
 <div class="syserr">
 <h2>System error</h2>
-<pre class="syserr">--Output from getRatingInfo returns correct data--
+<pre class="syserr">--Output from email should be email --
+--Output from email should be email and unique--
+--Output from Username of User should be unique--
+--Output from user is found using username and password--
+--Output from toString method should return username of the user--
+</pre>
+</div>
+</div>
+<div class="clear"></div>
+</div>
+<div class="testsuite failure">
+<div class="header">
+<h2>LoginControllerSpec</h2>
+<h3>
+                        Executed
+                        3
+                        tests
+                    
+                        with
+                        2 failures
+                        .
+                    </h3>
+</div>
+<div class="testcase clearfix success grid_8 alpha omega" data-name="user is  able to login, if username or password is  right">
+<div class="grid_3 alpha">
+<p>
+<span class="icon success"></span><b class="testname message success">user is  able to login, if username or password is  right</b>
+</p>
+<p class="summary">Executed in 0.355 seconds.</p>
+</div>
+<div class="grid_5 omega outputinfo"></div>
+<div class="clear"></div>
+</div>
+<div class="testcase clearfix failure grid_8 alpha omega" data-name="user is  unable to login, if username or password is not right">
+<div class="grid_3 alpha">
+<p>
+<span class="icon failure"></span><b class="testname message failure">user is  unable to login, if username or password is not right</b>
+</p>
+<p class="summary">Executed in 0.073 seconds.</p>
+</div>
+<div class="grid_5 omega outputinfo">
+<div class="details">
+<p>
+<b class="message">Condition not satisfied:
+
+response.getContentAsString() == 'User not found'
+|        |                    |
+|        ""                   false
+|                             14 differences (0% similarity)
+|                             (--------------)
+|                             (User not found)
+org.codehaus.groovy.grails.plugins.testing.GrailsMockHttpServletResponse@6c18a03
+</b>
+</p>
+<pre>junit.framework.AssertionFailedError: Condition not satisfied:
+
+response.getContentAsString() == 'User not found'
+|        |                    |
+|        ""                   false
+|                             14 differences (0% similarity)
+|                             (--------------)
+|                             (User not found)
+org.codehaus.groovy.grails.plugins.testing.GrailsMockHttpServletResponse@6c18a03
+
+	at com.ttnd.linksharing.LoginControllerSpec.user is  unable to login, if username or password is not right(LoginControllerSpec.groovy:55)
+</pre>
+</div>
+</div>
+<div class="clear"></div>
+</div>
+<div class="testcase clearfix failure grid_8 alpha omega" data-name="user is  unable to login, if username or password is  right but user is not active">
+<div class="grid_3 alpha">
+<p>
+<span class="icon failure"></span><b class="testname message failure">user is  unable to login, if username or password is  right but user is not active</b>
+</p>
+<p class="summary">Executed in 0.014 seconds.</p>
+</div>
+<div class="grid_5 omega outputinfo">
+<div class="details">
+<p>
+<b class="message">Condition not satisfied:
+
+response.getContentAsString() == 'Your account is not active'
+|        |                    |
+|        ""                   false
+|                             26 differences (0% similarity)
+|                             (--------------------------)
+|                             (Your account is not active)
+org.codehaus.groovy.grails.plugins.testing.GrailsMockHttpServletResponse@1f791776
+</b>
+</p>
+<pre>junit.framework.AssertionFailedError: Condition not satisfied:
+
+response.getContentAsString() == 'Your account is not active'
+|        |                    |
+|        ""                   false
+|                             26 differences (0% similarity)
+|                             (--------------------------)
+|                             (Your account is not active)
+org.codehaus.groovy.grails.plugins.testing.GrailsMockHttpServletResponse@1f791776
+
+	at com.ttnd.linksharing.LoginControllerSpec.user is  unable to login, if username or password is  right but user is not active(LoginControllerSpec.groovy:73)
+</pre>
+</div>
+</div>
+<div class="clear"></div>
+</div>
+<div class="clearfix output footer">
+<div class="sysout">
+<h2>Standard output</h2>
+<pre class="stdout">--Output from user is  able to login, if username or password is  right--
+--Output from user is  unable to login, if username or password is not right--
+--Output from user is  unable to login, if username or password is  right but user is not active--
+</pre>
+</div>
+<div class="syserr">
+<h2>System error</h2>
+<pre class="syserr">--Output from user is  able to login, if username or password is  right--
+--Output from user is  unable to login, if username or password is not right--
+--Output from user is  unable to login, if username or password is  right but user is not active--
+</pre>
+</div>
+</div>
+<div class="clear"></div>
+</div>
+<div class="testsuite error">
+<div class="header">
+<h2>ResourceRatingSpec</h2>
+<h3>
+                        Executed
+                        3
+                        tests
+                    
+                        with
+                        2 errors
+                        .
+                    </h3>
+</div>
+<div class="testcase clearfix success grid_8 alpha omega" data-name="resource rating is not saved when not between between 1 and 5">
+<div class="grid_3 alpha">
+<p>
+<span class="icon success"></span><b class="testname message success">resource rating is not saved when not between between 1 and 5</b>
+</p>
+<p class="summary">Executed in 0.428 seconds.</p>
+</div>
+<div class="grid_5 omega outputinfo"></div>
+<div class="clear"></div>
+</div>
+<div class="testcase clearfix error grid_8 alpha omega" data-name="resource rating saved when between 1 and 5">
+<div class="grid_3 alpha">
+<p>
+<span class="icon error"></span><b class="testname message error">resource rating saved when between 1 and 5</b>
+</p>
+<p class="summary">Executed in 0.045 seconds.</p>
+</div>
+<div class="grid_5 omega outputinfo">
+<div class="details">
+<p>
+<b class="message">Method on class [com.ttnd.linksharing.LinkResource] was used outside of a Grails application. If running in the context of a test using the mocking API or bootstrap Grails correctly.</b>
+</p>
+<pre>java.lang.IllegalStateException: Method on class [com.ttnd.linksharing.LinkResource] was used outside of a Grails application. If running in the context of a test using the mocking API or bootstrap Grails correctly.
+	at com.ttnd.linksharing.ResourceRatingSpec.resource rating saved when between 1 and 5(ResourceRatingSpec.groovy:44)
+</pre>
+</div>
+</div>
+<div class="clear"></div>
+</div>
+<div class="testcase clearfix error grid_8 alpha omega" data-name="resource rating should be unique per user and resource combination">
+<div class="grid_3 alpha">
+<p>
+<span class="icon error"></span><b class="testname message error">resource rating should be unique per user and resource combination</b>
+</p>
+<p class="summary">Executed in 0.041 seconds.</p>
+</div>
+<div class="grid_5 omega outputinfo">
+<div class="details">
+<p>
+<b class="message">Method on class [com.ttnd.linksharing.LinkResource] was used outside of a Grails application. If running in the context of a test using the mocking API or bootstrap Grails correctly.</b>
+</p>
+<pre>java.lang.IllegalStateException: Method on class [com.ttnd.linksharing.LinkResource] was used outside of a Grails application. If running in the context of a test using the mocking API or bootstrap Grails correctly.
+	at com.ttnd.linksharing.ResourceRatingSpec.resource rating should be unique per user and resource combination(ResourceRatingSpec.groovy:65)
+</pre>
+</div>
+</div>
+<div class="clear"></div>
+</div>
+<div class="clearfix output footer">
+<div class="sysout">
+<h2>Standard output</h2>
+<pre class="stdout">--Output from resource rating is not saved when not between between 1 and 5--
+--Output from resource rating saved when between 1 and 5--
+--Output from resource rating should be unique per user and resource combination--
+</pre>
+</div>
+<div class="syserr">
+<h2>System error</h2>
+<pre class="syserr">--Output from resource rating is not saved when not between between 1 and 5--
+--Output from resource rating saved when between 1 and 5--
+--Output from resource rating should be unique per user and resource combination--
+</pre>
+</div>
+</div>
+<div class="clear"></div>
+</div>
+<div class="testsuite failure">
+<div class="header">
+<h2>CustomTagLibSpec</h2>
+<h3>
+                        A single test executed
+                    
+                        with
+                        one failure
+                        .
+                    </h3>
+</div>
+<div class="testcase clearfix failure grid_8 alpha omega" data-name="custom tag returns img tag">
+<div class="grid_3 alpha">
+<p>
+<span class="icon failure"></span><b class="testname message failure">custom tag returns img tag</b>
+</p>
+<p class="summary">Executed in 4.187 seconds.</p>
+</div>
+<div class="grid_5 omega outputinfo">
+<div class="details">
+<p>
+<b class="message">Condition not satisfied:
+
+str == "&lt;img src='/user/img/1' height='20px' width='50px'/&gt;"
+|   |
+|   false
+|   3 differences (94% similarity)
+|   &lt;img src='(-)user/im(a)g(e)/1' height='20px' width='50px'/&gt;
+|   &lt;img src='(/)user/im(-)g(-)/1' height='20px' width='50px'/&gt;
+&lt;img src='user/image/1' height='20px' width='50px'/&gt;
+</b>
+</p>
+<pre>junit.framework.AssertionFailedError: Condition not satisfied:
+
+str == "&lt;img src='/user/img/1' height='20px' width='50px'/&gt;"
+|   |
+|   false
+|   3 differences (94% similarity)
+|   &lt;img src='(-)user/im(a)g(e)/1' height='20px' width='50px'/&gt;
+|   &lt;img src='(/)user/im(-)g(-)/1' height='20px' width='50px'/&gt;
+&lt;img src='user/image/1' height='20px' width='50px'/&gt;
+
+	at com.ttnd.linkshring.CustomTagLibSpec.custom tag returns img tag(CustomTagLibSpec.groovy:29)
+</pre>
+</div>
+</div>
+<div class="clear"></div>
+</div>
+<div class="clearfix output footer">
+<div class="sysout">
+<h2>Standard output</h2>
+<pre class="stdout">--Output from custom tag returns img tag--
+</pre>
+</div>
+<div class="syserr">
+<h2>System error</h2>
+<pre class="syserr">--Output from custom tag returns img tag--
+</pre>
+</div>
+</div>
+<div class="clear"></div>
+</div>
+<div class="testsuite error">
+<div class="header">
+<h2>SubscriptionControllerSpec</h2>
+<h3>
+                        Executed
+                        3
+                        tests
+                    
+                        with
+                        one error
+                        .
+                    </h3>
+</div>
+<div class="testcase clearfix success grid_8 alpha omega" data-name="subscription to a topic should be saved with default seriousness">
+<div class="grid_3 alpha">
+<p>
+<span class="icon success"></span><b class="testname message success">subscription to a topic should be saved with default seriousness</b>
+</p>
+<p class="summary">Executed in 0.466 seconds.</p>
+</div>
+<div class="grid_5 omega outputinfo"></div>
+<div class="clear"></div>
+</div>
+<div class="testcase clearfix success grid_8 alpha omega" data-name="Subscription should be updated">
+<div class="grid_3 alpha">
+<p>
+<span class="icon success"></span><b class="testname message success">Subscription should be updated</b>
+</p>
+<p class="summary">Executed in 0.126 seconds.</p>
+</div>
+<div class="grid_5 omega outputinfo"></div>
+<div class="clear"></div>
+</div>
+<div class="testcase clearfix error grid_8 alpha omega" data-name="subscription should be deleted when user unsubscribes">
+<div class="grid_3 alpha">
+<p>
+<span class="icon error"></span><b class="testname message error">subscription should be deleted when user unsubscribes</b>
+</p>
+<p class="summary">Executed in 0.101 seconds.</p>
+</div>
+<div class="grid_5 omega outputinfo">
+<div class="details">
+<p>
+<b class="message">Cannot get property 'id' on null object</b>
+</p>
+<pre>java.lang.NullPointerException: Cannot get property 'id' on null object
+	at com.ttnd.linksharing.SubscriptionController.delete(SubscriptionController.groovy:28)
+	at com.ttnd.linksharing.SubscriptionControllerSpec.subscription should be deleted when user unsubscribes(SubscriptionControllerSpec.groovy:59)
+</pre>
+</div>
+</div>
+<div class="clear"></div>
+</div>
+<div class="clearfix output footer">
+<div class="sysout">
+<h2>Standard output</h2>
+<pre class="stdout">--Output from subscription to a topic should be saved with default seriousness--
+--Output from Subscription should be updated--
+--Output from subscription should be deleted when user unsubscribes--
+</pre>
+</div>
+<div class="syserr">
+<h2>System error</h2>
+<pre class="syserr">--Output from subscription to a topic should be saved with default seriousness--
+--Output from Subscription should be updated--
+--Output from subscription should be deleted when user unsubscribes--
+</pre>
+</div>
+</div>
+<div class="clear"></div>
+</div>
+<div class="testsuite error">
+<div class="header">
+<h2>TopicControllerSpec</h2>
+<h3>
+                        A single test executed
+                    
+                        with
+                        one error
+                        .
+                    </h3>
+</div>
+<div class="testcase clearfix error grid_8 alpha omega" data-name="test something">
+<div class="grid_3 alpha">
+<p>
+<span class="icon error"></span><b class="testname message error">test something</b>
+</p>
+<p class="summary">Executed in 2.283 seconds.</p>
+</div>
+<div class="grid_5 omega outputinfo">
+<div class="details">
+<p>
+<b class="message">Cannot get property 'id' on null object</b>
+</p>
+<pre>java.lang.NullPointerException: Cannot get property 'id' on null object
+	at com.ttnd.linksharing.TopicController.delete(TopicController.groovy:49)
+	at com.ttnd.linksharing.TopicControllerSpec.test something(TopicControllerSpec.groovy:31)
+</pre>
+</div>
+</div>
+<div class="clear"></div>
+</div>
+<div class="clearfix output footer">
+<div class="sysout">
+<h2>Standard output</h2>
+<pre class="stdout">--Output from test something--
+</pre>
+</div>
+<div class="syserr">
+<h2>System error</h2>
+<pre class="syserr">--Output from test something--
+</pre>
+</div>
+</div>
+<div class="clear"></div>
+</div>
+<div class="testsuite success">
+<div class="header">
+<h2>LinkResourceSpec</h2>
+<h3>
+                        Executed
+                        2
+                        tests
+                    
+                        without a single error or failure!
+                    </h3>
+</div>
+<div class="testcase clearfix success grid_8 alpha omega" data-name="Link Resource should be saved">
+<div class="grid_3 alpha">
+<p>
+<span class="icon success"></span><b class="testname message success">Link Resource should be saved</b>
+</p>
+<p class="summary">Executed in 0.239 seconds.</p>
+</div>
+<div class="grid_5 omega outputinfo"></div>
+<div class="clear"></div>
+</div>
+<div class="testcase clearfix success grid_8 alpha omega" data-name="toString method should return url of the link resource">
+<div class="grid_3 alpha">
+<p>
+<span class="icon success"></span><b class="testname message success">toString method should return url of the link resource</b>
+</p>
+<p class="summary">Executed in 0.068 seconds.</p>
+</div>
+<div class="grid_5 omega outputinfo"></div>
+<div class="clear"></div>
+</div>
+<div class="clearfix output footer">
+<div class="sysout">
+<h2>Standard output</h2>
+<pre class="stdout">--Output from Link Resource should be saved--
+--Output from toString method should return url of the link resource--
+</pre>
+</div>
+<div class="syserr">
+<h2>System error</h2>
+<pre class="syserr">--Output from Link Resource should be saved--
+--Output from toString method should return url of the link resource--
+</pre>
+</div>
+</div>
+<div class="clear"></div>
+</div>
+<div class="testsuite success">
+<div class="header">
+<h2>SubscriptionSpec</h2>
+<h3>
+                        A single test executed
+                    
+                        without a single error or failure!
+                    </h3>
+</div>
+<div class="testcase clearfix success grid_8 alpha omega" data-name="Subscription for a user and topic should be one">
+<div class="grid_3 alpha">
+<p>
+<span class="icon success"></span><b class="testname message success">Subscription for a user and topic should be one</b>
+</p>
+<p class="summary">Executed in 0.327 seconds.</p>
+</div>
+<div class="grid_5 omega outputinfo"></div>
+<div class="clear"></div>
+</div>
+<div class="clearfix output footer">
+<div class="sysout">
+<h2>Standard output</h2>
+<pre class="stdout">--Output from Subscription for a user and topic should be one--
+</pre>
+</div>
+<div class="syserr">
+<h2>System error</h2>
+<pre class="syserr">--Output from Subscription for a user and topic should be one--
+</pre>
+</div>
+</div>
+<div class="clear"></div>
+</div>
+<div class="testsuite success">
+<div class="header">
+<h2>TopicSpec</h2>
+<h3>
+                        Executed
+                        2
+                        tests
+                    
+                        without a single error or failure!
+                    </h3>
+</div>
+<div class="testcase clearfix success grid_8 alpha omega" data-name="test name should be unique per user">
+<div class="grid_3 alpha">
+<p>
+<span class="icon success"></span><b class="testname message success">test name should be unique per user</b>
+</p>
+<p class="summary">Executed in 0.175 seconds.</p>
+</div>
+<div class="grid_5 omega outputinfo"></div>
+<div class="clear"></div>
+</div>
+<div class="testcase clearfix success grid_8 alpha omega" data-name="testing toString method should return name">
+<div class="grid_3 alpha">
+<p>
+<span class="icon success"></span><b class="testname message success">testing toString method should return name</b>
+</p>
+<p class="summary">Executed in 0.138 seconds.</p>
+</div>
+<div class="grid_5 omega outputinfo"></div>
+<div class="clear"></div>
+</div>
+<div class="clearfix output footer">
+<div class="sysout">
+<h2>Standard output</h2>
+<pre class="stdout">--Output from test name should be unique per user--
+--Output from testing toString method should return name--
+</pre>
+</div>
+<div class="syserr">
+<h2>System error</h2>
+<pre class="syserr">--Output from test name should be unique per user--
+--Output from testing toString method should return name--
 </pre>
 </div>
 </div>

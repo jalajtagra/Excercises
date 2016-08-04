@@ -8,8 +8,8 @@
 <html>
 <head>
     <meta name="layout" content="main"/>
-    <title>Login</title>
-
+    <title>Loginn</title>
+    <asset:javascript src="login.js"/>
     %{--<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>--}%
@@ -23,7 +23,7 @@
         <div class="panel-heading">
             Recent Shares
         </div>
-        <g:render template="/templates/resourceView" collection="${resources}" var="resource"></g:render>
+        <g:render template="/templates/resourceView" collection="${recentPosts}" var="resource"></g:render>
 
 
     </div>
@@ -33,7 +33,7 @@
             <div class="col-md-8" >
                 Top Posts
             </div>
-            <div class="col-md-4">
+            %{--<div class="col-md-4">
                 <div class="dropdown">
                     <button class=" dropdown-toggle" type="button" data-toggle="dropdown">Today
                         <span class="caret"></span></button>
@@ -43,9 +43,9 @@
                         <!--<li><a href="#">JavaScript</a></li>-->
                     </ul>
                 </div>
-            </div>
+            </div>--}%
         </div>
-        <g:render template="/templates/resourceView" collection="${recentPosts}" var="resource"></g:render>
+        <g:render template="/templates/resourceView" collection="${resources}" var="resource"></g:render>
     </div>
 
 </div>
@@ -56,10 +56,10 @@
             Login
         </div>
         <div class="panel-body">
-            <form class= "form-horizontal" role="form" action="login/loginhandler">
+            <form class= "form-horizontal"  id="loginForm" role="form" action="login/loginhandler">
 
                 <div class="form-group" style = "padding-left: 5px;padding-right:5px" >
-                    <label class = "control-label col-md-4" for="email" style = "padding: 5px ; text-align: left">Email/Username:</label>
+                    <label class = "control-label col-md-4" for="email" style = "padding: 5px ; text-align: left">Username:</label>
                     <div class="col-md-8">
                         <input type="text" class="form-control " name="username" id="email" style = "padding: 5px">
                     </div>
@@ -97,7 +97,7 @@
                 </ul>
             </g:hasErrors>
 
-            <form class="form-horizontal" role="form" action="registeruser" method="POST">
+            <form class="form-horizontal" id= "registerForm" role="form" action="user/registeruser" method="POST" enctype="multipart/form-data">
                 <div class="form-group ${userCommand?.errors?.getFieldError('firstName')?'has-error':''}" style = "margin-right:0px" >
                     <label class = "control-label col-sm-5" for="fname" style = "text-align: left; padding-left:30px">First name * : </label>
                     <div class="form-group col-sm-7" style = "padding-left: 5px;padding-right:5px" >
@@ -137,7 +137,7 @@
                 <div class="form-group" style = "margin-right:0px">
                     <label class = "control-label col-sm-5" for="photo" style = "text-align: left; padding-left:30px">Photo : </label>
                     <div class="form-group col-sm-7" style = "padding-left: 5px;padding-right:5px" >
-                        <input type="file"  id="photo" name='photo' style = "padding: 5px" >
+                        <input type="file"  id="photo" name='profilePhoto' style = "padding: 5px" >
                     </div>
                 </div>
                 <button type="submit" class="btn btn-default" style = "margin: 5px ">Register</button>
